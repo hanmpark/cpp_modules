@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/28 16:07:39 by hanmpark          #+#    #+#              #
-#    Updated: 2023/09/03 03:46:49 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/09/03 10:10:54 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,6 @@ LGREEN = \033[38;5;155m
 SOURCES_PATH = ./src/
 SOURCES = ${addprefix ${SOURCES_PATH}, Contact.cpp \
 										PhoneBook.cpp \
-										addContact.cpp \
-										searchContact.cpp \
 										main.cpp}
 
 OBJECTS = ${SOURCES:.cpp=.o}

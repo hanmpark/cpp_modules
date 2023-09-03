@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:10:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/03 01:33:40 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/03 12:21:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define CONTACT_HPP
 
 # include <iostream>
+
+# define RED "\033[38;5;204m"
+# define BLUE "\033[38;5;32m"
+# define GREEN "\033[38;5;80m"
+# define YELLOW "\033[38;5;184m"
+# define DEF "\033[0m"
 
 class Contact {
 

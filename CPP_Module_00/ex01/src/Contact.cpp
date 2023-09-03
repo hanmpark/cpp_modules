@@ -6,13 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:20:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/01 16:50:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/03 09:54:25 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-
-#include <iostream>
 
 Contact::Contact(void) {}
 
