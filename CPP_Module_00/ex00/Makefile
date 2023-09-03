@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/28 16:07:39 by hanmpark          #+#    #+#              #
-#    Updated: 2023/09/03 12:54:04 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/09/03 23:02:29 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,9 +56,12 @@ ${NAME}: ${OBJECTS}
 
 clean:
 	@${RM} ${OBJECTS}
+	@printf "${ORANGE}${BOLD}\tCLEANING${DEF}\n"
+	@printf "${LBLUE}${BOLD}${CUR} - Deleted object files${DEF}\n"
 
 fclean: clean
 	@${RM} ${NAME}
+	@printf "${LBLUE}${BOLD}${CUR} - Deleted ${NAME}${DEF}\n"
 
 re: fclean all
 
