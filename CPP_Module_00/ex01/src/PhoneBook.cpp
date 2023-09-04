@@ -6,14 +6,14 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:20:12 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/03 12:20:50 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:57:20 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 #include <iomanip>
-#include <cstdlib>
+#include <sstream>
 
 PhoneBook::PhoneBook(void) : _count(0), _trackOldestContact(0) {}
 
@@ -124,6 +124,18 @@ void	PhoneBook::showRegisteredContact(void) const {
 	std::cout << std::endl;
 }
 
+static int	stringToInt(std::string &str) {
+
+	for (size_t i = 0; i < str.size(); i++) {
+		if (!std::isdigit(str.at(i))) {
+			return -1;
+		}
+	}
+	int	i;
+	std::istringstream(str) >> i;
+	return i;
+}
+
 void	PhoneBook::searchContact(void) const {
 
 	if (_count == 0) {
@@ -137,17 +149,12 @@ void	PhoneBook::searchContact(void) const {
 		std::string	index;
 		std::cout << BLUE "Enter the index of the contact: " DEF;
 		std::getline(std::cin, index);
-		try {
-			int	chosenIndex = std::stoi(index);
-			if (chosenIndex < 0 || chosenIndex >= _count) {
-				std::cerr << RED "The chosen index does not exist" DEF << std::endl;
-				continue;
-			}
-			putChosenContactInfo(chosenIndex);
-			break;
-		} catch (const std::invalid_argument &error) {
-			std::cerr << error.what() << std::endl;
+		int	chosenIndex = stringToInt(index);
+		if (chosenIndex < 0 || chosenIndex >= _count) {
+			std::cerr << RED "The chosen index does not exist" DEF << std::endl;
 			continue;
 		}
+		putChosenContactInfo(chosenIndex);
+		break;
 	}
 }
