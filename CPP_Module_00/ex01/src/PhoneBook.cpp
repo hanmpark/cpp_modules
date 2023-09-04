@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:20:12 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/04 13:57:20 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:48:06 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void	putIndexInfo(std::string info) {
 
 	std::cout << "|";
 	if (info.empty()) {
-		std::cout << std::setw(10);
+		std::cout << std::setw(10) << "";
 		return;
 	}
 	if (info.length() > MAX_COLUMN_LENGTH) {
