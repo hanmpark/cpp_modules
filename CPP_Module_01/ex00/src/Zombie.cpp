@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:02:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/04 17:46:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:45:40 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Zombie::~Zombie(void) {
 
-	std::cout << "Zombie " << this->getName() << " starved" << std::endl;
+	std::cout << "Zombie " << this->_name << " starved" << std::endl;
 }
 
 void	Zombie::setName(std::string zombieName) {
