@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:09:16 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/04 13:46:21 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/05 20:45:27 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 
 # include "Contact.hpp"
 
+/* Defines */
+
 # define MAX_CONTACTS 8
 # define MAX_COLUMN_LENGTH 10
+
+/* Class */
 
 class PhoneBook {
 
