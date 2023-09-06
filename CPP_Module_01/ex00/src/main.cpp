@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:56:33 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/04 18:02:24 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:13:40 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-std::string	setZombieName(std::string from) {
+static std::string	setZombieName(std::string from) {
 
 	std::string	zombieName;
 

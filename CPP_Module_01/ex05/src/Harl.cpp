@@ -6,11 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:54:53 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/05 14:30:13 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:35:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
+Harl::Harl(void) {}
+
+Harl::~Harl(void) {}
 
 void	Harl::debug(void) {
 

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:54:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/05 14:28:50 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:39:23 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@
 class	Harl {
 
 public:
+	Harl(void);
+	~Harl(void);
 
 	void	complain(std::string level);
 
 private:
-
 	typedef void	(Harl::*harl_function_t)(void);
 
 	struct	Level {

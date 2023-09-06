@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:17:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/04 18:43:45 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:19:59 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(void) {
 	for (int i = 0; i < zombieAmount; i++) {
 		horde[i].announce();
 	}
-	
+
 	delete [] horde;
 	return 0;
 }

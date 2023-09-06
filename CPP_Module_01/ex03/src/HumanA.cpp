@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:26:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/05 00:30:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:23:34 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ HumanA::HumanA(std::string name, Weapon &usingWeapon) : _name(name), _weapon(usi
 
 void	HumanA::attack(void) const {
 
-	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
+	std::cout << this->_name << " attacks with his " << _weapon.getType() << std::endl;
 }
