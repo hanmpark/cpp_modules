@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 00:57:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/05 12:39:36 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/11 20:05:38 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static bool	getContent(std::string const fileName, std::string &content, std::st
 		std::cout << GREEN "Found " << countOccurrence << " occurrence(s) of \"" << occurrence << "\" in " << fileName << DEF << std::endl;
 	} else {
 		std::cout << GREEN << fileName << " contains no occurence of \"" << occurrence << "\"" << DEF << std::endl;
+		return false;
 	}
 
 	return true;
@@ -52,13 +53,13 @@ int	main(int argc, char **argv) {
 		return 1;
 	}
 
-	std::string	const	occurrence = argv[2];
-	std::string	const	replace = argv[3];
+	std::string const	occurrence = argv[2];
+	std::string const	replace = argv[3];
 	std::string			fileName = argv[1];
 	std::string			content;
 
 	if (!getContent(fileName, content, occurrence, replace)) {
-		std::cerr << RED "Error: Something wrong occurred opening the file" DEF << std::endl;
+		std::cerr << RED "Error: Something wrong occurred opening/reading the file" DEF << std::endl;
 		return 1;
 	}
 
