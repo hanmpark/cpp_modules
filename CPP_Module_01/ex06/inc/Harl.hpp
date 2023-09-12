@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:54:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/05 16:26:51 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:41:59 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 /* Class */
 
 class	Harl {
-
 public:
 
 	void	complain(std::string level);
@@ -42,7 +41,6 @@ private:
 	void	info(void);
 	void	warning(void);
 	void	error(void);
-
 };
 
 #endif

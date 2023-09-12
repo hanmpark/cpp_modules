@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 00:57:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/11 20:05:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:41:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #define DEF "\033[0m"
 
 static bool	getContent(std::string const fileName, std::string &content, std::string const occurrence, std::string const replace) {
-
 	std::ifstream	ifs;
 	ifs.open(fileName, std::ifstream::in);
 	if (!ifs.is_open()) {
@@ -47,7 +46,6 @@ static bool	getContent(std::string const fileName, std::string &content, std::st
 }
 
 int	main(int argc, char **argv) {
-
 	if (argc != 4) {
 		std::cerr << RED "Error: Wrong number of arguments" DEF << std::endl;
 		return 1;

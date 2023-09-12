@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:17:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/06 11:19:59 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:40:06 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <sstream>
 
 static int	stringToInt(std::string str) {
-
 	for (size_t i = 0; i < str.size(); i++) {
 		if (!std::isdigit(str.at(i))) {
 			return -1;
@@ -27,7 +26,6 @@ static int	stringToInt(std::string str) {
 }
 
 int	main(void) {
-
 	std::cout << GREEN "CREATING A HORDE OF ZOMBIES" DEF << std::endl;
 
 	/* Amount of zombies */

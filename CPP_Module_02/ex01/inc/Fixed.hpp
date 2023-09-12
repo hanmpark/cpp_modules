@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:53:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/11 19:23:01 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:39:04 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <iostream>
 
 class	Fixed {
-
 public:
 	Fixed(void);
 	Fixed(Fixed const &rhs);
@@ -35,7 +34,6 @@ public:
 private:
 	int					_fixedPointValue;
 	static int const	_fractionalBits = 8;
-
 };
 
 std::ostream	&operator<<(std::ostream &o, Fixed const &fp);

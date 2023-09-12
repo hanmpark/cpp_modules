@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 12:52:03 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/03 22:51:47 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:44:23 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
 void	Account::_displayTimestamp(void) {
-
 	std::time_t	currentTime = std::time(nullptr);
 	struct	tm*	timeInfo = std::localtime(&currentTime);
 
@@ -31,7 +30,6 @@ void	Account::_displayTimestamp(void) {
 }
 
 Account::Account(int initial_deposit) : _accountIndex(_nbAccounts), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0) {
-
 	_displayTimestamp();
 	std::cout << "index:" << _nbAccounts << ";amount:" << initial_deposit << ";created" << std::endl;
 	_nbAccounts++;
@@ -39,7 +37,6 @@ Account::Account(int initial_deposit) : _accountIndex(_nbAccounts), _amount(init
 }
 
 Account::~Account(void) {
-
 	_displayTimestamp();
 	std::cout	<< "index:" << _accountIndex
 				<< ";amount:" << _amount
@@ -63,7 +60,6 @@ int	Account::getNbWithdrawals(void) {
 }
 
 void	Account::displayAccountsInfos(void) {
-
 	_displayTimestamp();
 	std::cout	<< "accounts:" << _nbAccounts
 				<< ";total:" << _totalAmount
@@ -73,7 +69,6 @@ void	Account::displayAccountsInfos(void) {
 }
 
 void	Account::displayStatus(void) const {
-
 	_displayTimestamp();
 	std::cout	<< "index:" << _accountIndex
 				<< ";amount:" << _amount
@@ -83,7 +78,6 @@ void	Account::displayStatus(void) const {
 }
 
 void	Account::makeDeposit(int deposit) {
-
 	_displayTimestamp();
 	std::cout	<< "index:" << _accountIndex
 				<< ";p_amount:" << _amount;
@@ -100,7 +94,6 @@ void	Account::makeDeposit(int deposit) {
 }
 
 bool	Account::makeWithdrawal(int withdrawal) {
-
 	_displayTimestamp();
 	std::cout	<< "index:" << _accountIndex
 				<< ";p_amount:" << _amount;
@@ -123,6 +116,5 @@ bool	Account::makeWithdrawal(int withdrawal) {
 }
 
 int	Account::checkAmount(void) const {
-
 	return _amount;
 }

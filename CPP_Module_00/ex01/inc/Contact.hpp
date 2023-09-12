@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:10:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/05 20:45:06 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:43:00 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@
 /* Class */
 
 class Contact {
-
 public:
-
 	Contact(void);
 	~Contact(void);
 
@@ -45,13 +43,11 @@ public:
 	std::string	getDarkestSecret(void) const;
 
 private:
-
 	std::string	_FirstName;
 	std::string	_LastName;
 	std::string	_NickName;
 	std::string	_PhoneNumber;
 	std::string	_DarkestSecret;
-
 };
 
 #endif

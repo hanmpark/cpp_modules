@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:27:34 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/06 11:38:14 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:40:49 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "Weapon.hpp"
 
 class	HumanA {
-
 public:
 	HumanA(std::string name, Weapon &usingWeapon);
 
@@ -25,7 +24,6 @@ public:
 private:
 	std::string	_name;
 	Weapon		&_weapon;
-
 };
 
 #endif

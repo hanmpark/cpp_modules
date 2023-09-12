@@ -6,14 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 16:18:54 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/05 21:40:10 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:42:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 std::string	make_loud_noise(std::string simple_noise) {
-
 	for (size_t i = 0; i < simple_noise.size(); i++) {
 		simple_noise.at(i) = std::toupper(simple_noise.at(i));
 	}
@@ -22,7 +21,6 @@ std::string	make_loud_noise(std::string simple_noise) {
 }
 
 int	main(int argc, char **argv) {
-
 	std::string	noise;
 
 	if (argc < 2) {

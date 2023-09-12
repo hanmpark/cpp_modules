@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:09:16 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/05 20:45:27 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:43:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 class PhoneBook {
 
 public:
-
 	PhoneBook(void);
 	~PhoneBook(void);
 
@@ -33,14 +32,12 @@ public:
 	void	searchContact(void) const;
 
 private:
-
 	int		_count;
 	int		_trackOldestContact;
 	Contact	_contacts[MAX_CONTACTS];
 
 	void	showRegisteredContact(void) const;
 	void	putChosenContactInfo(int chosenIndex) const;
-
 };
 
 #endif

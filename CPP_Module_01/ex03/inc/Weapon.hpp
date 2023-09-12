@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:27:00 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/06 11:38:23 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:40:54 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <iostream>
 
 class	Weapon {
-
 public:
 	Weapon(std::string weapon);
 	~Weapon(void);
@@ -26,7 +25,6 @@ public:
 
 private:
 	std::string	type;
-
 };
 
 #endif

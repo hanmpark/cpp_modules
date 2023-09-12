@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/03 12:44:28 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:43:21 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <cstdlib>
 
 int	main( void ) {
-
 	PhoneBook	phonebook;
 
 	while (1) {

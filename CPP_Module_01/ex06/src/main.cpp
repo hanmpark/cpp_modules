@@ -6,20 +6,18 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:54:36 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/05 16:21:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:42:13 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 static bool	isLevel(std::string chosenLevel) {
-
 	return chosenLevel == "DEBUG" || chosenLevel == "INFO" \
 		|| chosenLevel == "WARNING" || chosenLevel == "ERROR";
 }
 
 int	main(int argc, char **argv) {
-
 	if (argc != 2) {
 		std::cerr << RED "Error: Wrong number of arguments" DEF << std::endl;
 		return 1;

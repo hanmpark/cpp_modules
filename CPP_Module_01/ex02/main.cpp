@@ -6,14 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:14:44 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/04 23:24:24 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:40:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 int	main(void) {
-
 	std::string	stringBrain = "HI THIS IS BRAIN";
 	std::string	*stringPTR = &stringBrain;
 	std::string	&stringREF = stringBrain;

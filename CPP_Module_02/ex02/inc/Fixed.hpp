@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:53:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:39:09 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:38:38 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,20 @@ public:
 	Fixed	&operator=(Fixed const &rhs);
 	~Fixed(void);
 
+	Fixed(int const d);
+	Fixed(float const f);
+
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
+
+	float	toFloat(void) const;
+	int		toInt(void) const;
 
 private:
 	int					_fixedPointValue;
 	static int const	_fractionalBits = 8;
 };
+
+std::ostream	&operator<<(std::ostream &o, Fixed const &fp);
 
 #endif
