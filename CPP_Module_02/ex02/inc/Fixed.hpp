@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:53:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:38:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:29:12 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,28 @@ public:
 
 	float	toFloat(void) const;
 	int		toInt(void) const;
+
+	bool	operator>(Fixed const &rhs) const;
+	bool	operator<(Fixed const &rhs) const;
+	bool	operator>=(Fixed const &rhs) const;
+	bool	operator<=(Fixed const &rhs) const;
+	bool	operator==(Fixed const &rhs) const;
+	bool	operator!=(Fixed const &rhs) const;
+
+	Fixed	operator+(Fixed const &rhs) const;
+	Fixed	operator-(Fixed const &rhs) const;
+	Fixed	operator*(Fixed const &rhs) const;
+	Fixed	operator/(Fixed const &rhs) const;
+
+	Fixed	operator++(int);
+	Fixed	&operator++(void);
+	Fixed	operator--(int);
+	Fixed	&operator--(void);
+
+	static Fixed		&min(Fixed &first, Fixed &second);
+	static Fixed const	&min(Fixed const &first, Fixed const &second);
+	static Fixed		&max(Fixed &first, Fixed &second);
+	static Fixed const	&max(Fixed const &first, Fixed const &second);
 
 private:
 	int					_fixedPointValue;
