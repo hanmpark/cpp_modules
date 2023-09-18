@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:02:43 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/14 21:02:06 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/18 12:14:00 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
+
+# define GREEN "\033[38;5;73m"
+# define DEF "\033[0m"
 
 class ClapTrap {
 public:
