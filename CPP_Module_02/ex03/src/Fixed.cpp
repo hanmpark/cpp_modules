@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:54:08 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/14 14:16:30 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:37:41 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ Fixed::Fixed(void) : _fixedPointValue(0) {
 	// std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const &rhs) {
+Fixed::Fixed(Fixed const &copy) {
 	// std::cout << "Copy constructor called" << std::endl;
-	*this = rhs;
+	*this = copy;
 }
 
 Fixed::Fixed(int const d) : _fixedPointValue(d * (1 << _fractionalBits)) {
@@ -37,9 +37,7 @@ Fixed::Fixed(float const f) : _fixedPointValue(std::roundf(f * (1 << _fractional
 
 Fixed	&Fixed::operator=(Fixed const &rhs) {
 	// std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &rhs) {
-		this->_fixedPointValue = rhs.getRawBits();
-	}
+	_fixedPointValue = rhs.getRawBits();
 
 	return *this;
 }
@@ -53,11 +51,11 @@ Fixed::~Fixed() {
 /* ************************************************************************** */
 
 int	Fixed::getRawBits(void) const {
-	return this->_fixedPointValue;
+	return _fixedPointValue;
 }
 
 void	Fixed::setRawBits(int const raw) {
-	this->_fixedPointValue = raw;
+	_fixedPointValue = raw;
 }
 
 float	Fixed::toFloat(void) const {

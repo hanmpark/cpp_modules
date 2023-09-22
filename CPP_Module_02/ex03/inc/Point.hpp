@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:20:02 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/14 11:17:18 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:35:55 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	Point {
 public:
 	Point(void);
 	Point(float const x, float const y);
-	Point(Point const &rhs);
+	Point(Point const &copy);
 	Point	&operator=(Point const &rhs);
 	~Point(void);
 

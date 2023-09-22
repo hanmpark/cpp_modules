@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:53:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/13 12:29:12 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:36:06 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class	Fixed {
 public:
 	Fixed(void);
-	Fixed(Fixed const &rhs);
+	Fixed(Fixed const &copy);
 	Fixed	&operator=(Fixed const &rhs);
 	~Fixed(void);
 
