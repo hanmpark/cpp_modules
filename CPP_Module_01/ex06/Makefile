@@ -6,65 +6,48 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/28 16:07:39 by hanmpark          #+#    #+#              #
-#    Updated: 2023/09/05 15:34:44 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/09/22 15:47:49 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# ---------------------------------- COLORS ---------------------------------- #
-DEF = \033[0m
+# ---------------------------------- Colors ---------------------------------- #
+CYAN = \033[38;5;117m
+ROSE = \033[38;5;169m
 BOLD = \033[1m
 CUR = \033[3m
-UL = \033[4m
-UP = \033[A
+DEF = \033[0m
 
-ORANGE = \033[38;5;216m
-LBLUE = \033[38;5;153m
-LYELLOW = \033[38;5;228m
-LPURPLE = \033[38;5;189m
-LGREEN = \033[38;5;155m
-
-# ---------------------------- SOURCES / OBJECTS ----------------------------- #
+# --------------------------------- Compiler --------------------------------- #
 SOURCES_PATH = ./src/
 SOURCES = ${addprefix ${SOURCES_PATH}, main.cpp \
 										Harl.cpp}
 
 OBJECTS = ${SOURCES:.cpp=.o}
 
-# --------------------------------- COMPILER --------------------------------- #
+%.o: %.cpp
+	@${CC} ${CFLAGS} -I ${INC_PATH} -c $< -o $@
+
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 INC_PATH = ./inc/
 
-SRC_COUNT = 0
-SRC_TOT = ${shell find . -type f -name '*.cpp' | wc -l}
-SRC_PRCT = ${shell expr 100 \* ${SRC_COUNT} / ${SRC_TOT}}
-BAR = ${shell expr 23 \* ${SRC_COUNT} / ${SRC_TOT}}
-
-%.o: %.cpp
-	@${eval SRC_COUNT = ${shell expr ${SRC_COUNT} + 1}}
-	@${CC} ${CFLAGS} -I ${INC_PATH} -c $< -o $@
-	@printf "\n ${BOLD}${CUR}${LPURPLE}-> Compiling ${DEF}${BOLD}${LYELLOW}[${NAME}]${DEF}\n"
-	@printf " ${LPURPLE}   [${LGREEN}%-23.${BAR}s${LPURPLE}] [%d/%d (%d%%)]${DEF}" "***********************" ${SRC_COUNT} ${SRC_TOT} ${SRC_PRCT}
-	@printf "${UP}${UP}${UP}\n"
-
-# ---------------------------------- RULES ----------------------------------- #
+# ---------------------------------- Rules ----------------------------------- #
 NAME = HarlFilter
+RM = rm -rf
 
 all: ${NAME}
 
 ${NAME}: ${OBJECTS}
-	@printf "\n\n\n\n"
+	@printf "${CYAN}Compiled ${BOLD}${CUR}${NAME}${DEF}\n"
 	@${CC} ${CFLAGS} ${OBJECTS} -o ${NAME}
-	@printf "${BOLD}${CUR}${LYELLOW}${NAME} COMPILED ✨${DEF}\n\n"
 
 clean:
+	@printf "${ROSE}Deleted object files${DEF}\n"
 	@${RM} ${OBJECTS}
-	@printf "${ORANGE}${BOLD}\tCLEANING${DEF}\n"
-	@printf "${LBLUE}${BOLD}${CUR} - Deleted object files${DEF}\n"
 
 fclean: clean
+	@printf "${ROSE}Deleted ${BOLD}${CUR}${NAME}${DEF}\n"
 	@${RM} ${NAME}
-	@printf "${LBLUE}${BOLD}${CUR} - Deleted ${NAME}${DEF}\n"
 
 re: fclean all
 
