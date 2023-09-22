@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:27:00 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:40:54 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:20:10 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	void				setType(std::string newValue);
 
 private:
-	std::string	type;
+	std::string	_type;
 };
 
 #endif

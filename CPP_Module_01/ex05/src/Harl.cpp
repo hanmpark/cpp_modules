@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:54:53 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:41:43 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:20:20 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	Harl::complain(std::string level) {
 
 	for (size_t i = 0; i < 4; i++) {
 		if (level == complainHarl[i].level) {
-			(this->*complainHarl[i].complainLevel)();
+			(*complainHarl[i].complainLevel)();
 		}
 	}
 }

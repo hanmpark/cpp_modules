@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:54:53 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:42:08 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:20:34 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void	Harl::complain(std::string level) {
 	for (size_t i = 0; i < 4; i++) {
 		if (level == differentLevels[i]) {
 			switch (i) {
-				case 0: this->debug();
-				case 1: this->info();
-				case 2: this->warning();
-				case 3: this->error();
+				case 0: debug();
+				case 1: info();
+				case 2: warning();
+				case 3: error();
 				default: break;
 			}
 		}
