@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:18:32 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/18 12:09:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:39:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << PURPLE "[ScavTrap] default constructor called" DEF << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &rhs) : ClapTrap(rhs.getName()){
-	*this = rhs;
+ScavTrap::ScavTrap(ScavTrap const &copy) : ClapTrap(copy.getName()) {
+	*this = copy;
 	std::cout << PURPLE "[ScavTrap] copy constructor called" DEF << std::endl;
 }
 
@@ -50,9 +50,9 @@ void	ScavTrap::attack(const std::string &target) {
 		std::cout << PURPLE "[ScavTrap] " << _Name << " attacks " << target << ", causing " << _AttackDamage << " points of damage!" DEF << std::endl;
 		_EnergyPoints--;
 	} else if (!_EnergyPoints) {
-		std::cout << PURPLE "[ScavTrap] " << _Name << " has no energy point left." DEF << std::endl;
+		std::cout << PURPLE "[ScavTrap] " << _Name << " has no energy point left to be able to attack." DEF << std::endl;
 	} else if (!_HitPoints) {
-		std::cout << PURPLE "[ScavTrap] " << _Name << " has no more hit points." DEF << std::endl;
+		std::cout << PURPLE "[ScavTrap] " << _Name << " is dead thus it can't attack." DEF << std::endl;
 	}
 }
 
