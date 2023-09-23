@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/28 16:07:39 by hanmpark          #+#    #+#              #
-#    Updated: 2023/09/22 15:29:12 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/09/22 20:40:13 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ all: ${NAME}
 ${NAME}: ${OBJECTS}
 	@printf "${CYAN}Compiled ${BOLD}${CUR}${NAME}${DEF}\n"
 	@${CC} ${CFLAGS} ${OBJECTS} -o ${NAME}
+
 
 clean:
 	@printf "${ROSE}Deleted object files${DEF}\n"
