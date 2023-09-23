@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:02:45 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 14:23:23 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:50:18 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@ ClapTrap::ClapTrap() : _Name("NoName"), _HitPoints(10), _EnergyPoints(10), _Atta
 	std::cout << GREEN "[ClapTrap] default constructor called" DEF << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &copy) {
-	*this = copy;
-	std::cout << GREEN "[ClapTrap] copy constructor called" DEF << std::endl;
-}
-
-ClapTrap::ClapTrap(std::string Name) : _Name(Name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
+ClapTrap::ClapTrap(std::string const &Name) : _Name(Name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
 	std::cout << GREEN "[ClapTrap] string constructor called" DEF << std::endl;
 }
 
-ClapTrap::~ClapTrap() {
-	std::cout << GREEN "[ClapTrap] destructor called" DEF << std::endl;
+ClapTrap::ClapTrap(ClapTrap const &copy) {
+	std::cout << GREEN "[ClapTrap] copy constructor called" DEF << std::endl;
+	*this = copy;
 }
 
 ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs) {
+	std::cout << GREEN "[ClapTrap] copy assignment operator called" DEF << std::endl;
 	_Name = rhs.getName();
 	_HitPoints = rhs.getHitPoints();
 	_EnergyPoints = rhs.getEnergyPoints();
 	_AttackDamage = rhs.getAttackDamage();
-	std::cout << GREEN "[ClapTrap] copy assignment operator called" DEF << std::endl;
 
 	return *this;
+}
+
+ClapTrap::~ClapTrap() {
+	std::cout << GREEN "[ClapTrap] destructor called" DEF << std::endl;
 }
 
 void	ClapTrap::attack(std::string const &target) {

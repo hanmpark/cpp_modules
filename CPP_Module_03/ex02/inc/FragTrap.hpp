@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:28:00 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/21 21:00:30 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:46:18 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class	FragTrap : public ClapTrap {
 public:
 	FragTrap();
-	FragTrap(std::string Name);
+	FragTrap(std::string const &Name);
 	FragTrap(FragTrap const &copy);
 	FragTrap	&operator=(FragTrap const &rhs);
 	~FragTrap();

@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:02:45 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 17:49:55 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:48:34 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _Name("NoName"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
+ClapTrap::ClapTrap(void) : _Name("NoName"), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
 	std::cout << GREEN "[ClapTrap] default constructor called" DEF << std::endl;
 }
 
@@ -35,7 +35,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs) {
 	return *this;
 }
 
-ClapTrap::~ClapTrap() {
+ClapTrap::~ClapTrap(void) {
 	std::cout << GREEN "[ClapTrap] destructor called" DEF << std::endl;
 }
 

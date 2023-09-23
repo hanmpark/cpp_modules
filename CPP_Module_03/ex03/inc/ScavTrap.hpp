@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:41:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 16:47:04 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:44:40 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # define PURPLE "\033[38;5;134m"
 
-class	ScavTrap : public ClapTrap {
+class	ScavTrap : virtual public ClapTrap {
 public:
 	ScavTrap();
 	ScavTrap(std::string const &Name);

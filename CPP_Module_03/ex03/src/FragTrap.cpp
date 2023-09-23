@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:28:27 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 17:25:07 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:49:02 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ FragTrap::FragTrap() : ClapTrap() {
 	_AttackDamage = 30;
 }
 
-FragTrap::FragTrap(FragTrap const &copy) : ClapTrap(copy.getName()) {
-	std::cout << ROSE "[FragTrap] copy constructor called" DEF << std::endl;
-	*this = copy;
-}
-
 FragTrap::FragTrap(std::string const &Name) : ClapTrap(Name) {
 	std::cout << ROSE "[FragTrap] string constructor called" DEF << std::endl;
 	_HitPoints = 100;
 	_EnergyPoints = 100;
 	_AttackDamage = 30;
+}
+
+FragTrap::FragTrap(FragTrap const &copy) : ClapTrap(copy.getName()) {
+	std::cout << ROSE "[FragTrap] copy constructor called" DEF << std::endl;
+	*this = copy;
 }
 
 FragTrap	&FragTrap::operator=(FragTrap const &rhs) {

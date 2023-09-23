@@ -6,37 +6,37 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:18:32 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 13:39:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:50:05 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap() {
+	std::cout << PURPLE "[ScavTrap] default constructor called" DEF << std::endl;
 	_HitPoints = 100;
 	_EnergyPoints = 50;
 	_AttackDamage = 20;
-	std::cout << PURPLE "[ScavTrap] default constructor called" DEF << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string const &Name) : ClapTrap(Name) {
+	std::cout << PURPLE "[ScavTrap] string constructor called" DEF << std::endl;
+	_HitPoints = 100;
+	_EnergyPoints = 50;
+	_AttackDamage = 20;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &copy) : ClapTrap(copy.getName()) {
-	*this = copy;
 	std::cout << PURPLE "[ScavTrap] copy constructor called" DEF << std::endl;
-}
-
-ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name) {
-	_HitPoints = 100;
-	_EnergyPoints = 50;
-	_AttackDamage = 20;
-	std::cout << PURPLE "[ScavTrap] string constructor called" DEF << std::endl;
+	*this = copy;
 }
 
 ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs) {
+	std::cout << PURPLE "[ScavTrap] copy assignment operator called" DEF << std::endl;
 	_Name = rhs.getName();
 	_HitPoints = rhs.getHitPoints();
 	_EnergyPoints = rhs.getEnergyPoints();
 	_AttackDamage = rhs.getAttackDamage();
-	std::cout << PURPLE "[ScavTrap] copy assignment operator called" DEF << std::endl;
 
 	return *this;
 }
