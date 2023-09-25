@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 16:04:48 by hanmpark          #+#    #+#              #
-#    Updated: 2023/09/23 20:50:24 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/09/25 12:56:26 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 INC_PATH = ./inc/
 
 # ---------------------------------- Rules ----------------------------------- #
-NAME = Polymorphism
+NAME = Brain
 RM = rm -rf
 
 all: ${NAME}
