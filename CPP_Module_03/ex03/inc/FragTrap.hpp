@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:28:00 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 16:44:35 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:03:48 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,19 @@
 
 # define ROSE "\033[38;5;218m"
 
-class	FragTrap : virtual public ClapTrap {
+class FragTrap : virtual public ClapTrap {
 public:
 	FragTrap();
 	FragTrap(std::string const &Name);
 	FragTrap(FragTrap const &copy);
-	FragTrap	&operator=(FragTrap const &rhs);
+	FragTrap &operator=(FragTrap const &rhs);
 	~FragTrap();
 
-	void	highFivesGuys();
+	void highFivesGuys();
+
+protected:
+	unsigned int _FragHitPoints;
+	unsigned int _FragAttackDamage;
 };
 
 #endif

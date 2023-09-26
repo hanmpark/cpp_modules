@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:28:27 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 17:25:07 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:23:38 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ FragTrap::FragTrap() : ClapTrap() {
 	_AttackDamage = 30;
 }
 
-FragTrap::FragTrap(FragTrap const &copy) : ClapTrap(copy.getName()) {
+FragTrap::FragTrap(FragTrap const &copy) : ClapTrap(copy) {
 	std::cout << ROSE "[FragTrap] copy constructor called" DEF << std::endl;
 	*this = copy;
 }

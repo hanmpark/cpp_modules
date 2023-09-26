@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:18:32 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 17:49:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:23:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap(std::string const &Name) : ClapTrap(Name) {
 	_AttackDamage = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &copy) : ClapTrap(copy.getName()) {
+ScavTrap::ScavTrap(ScavTrap const &copy) : ClapTrap(copy) {
 	std::cout << PURPLE "[ScavTrap] copy constructor called" DEF << std::endl;
 	*this = copy;
 }

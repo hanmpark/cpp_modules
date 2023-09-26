@@ -6,31 +6,29 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:17:32 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/23 03:09:33 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:21:12 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap() {
+DiamondTrap::DiamondTrap() : ClapTrap("NoName_clap_name"), FragTrap(), ScavTrap() {
 	std::cout << YELLOW "[DiamondTrap] default constructor called" DEF << std::endl;
 	_Name = "NoName";
-	ClapTrap::_Name = "NoName_clap_name";
-	_HitPoints = 100;
-	_EnergyPoints = 50;
-	_AttackDamage = 30;
+	_HitPoints = _FragHitPoints;
+	_EnergyPoints = _ScavEnergyPoints;
+	_AttackDamage = _FragAttackDamage;
 }
 
-DiamondTrap::DiamondTrap(std::string const &Name) : FragTrap(Name), ScavTrap(Name) {
+DiamondTrap::DiamondTrap(std::string const &Name) : ClapTrap(Name + "_clap_name"), FragTrap(Name), ScavTrap(Name) {
 	std::cout << YELLOW "[DiamondTrap] string constructor called" DEF << std::endl;
 	_Name = Name;
-	ClapTrap::_Name = Name + "_clap_name";
-	_HitPoints = 100;
-	_EnergyPoints = 50;
-	_AttackDamage = 30;
+	_HitPoints = _FragHitPoints;
+	_EnergyPoints = _ScavEnergyPoints;
+	_AttackDamage = _FragAttackDamage;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &copy) : FragTrap(copy.getName()), ScavTrap(copy.getName()) {
+DiamondTrap::DiamondTrap(DiamondTrap const &copy) : ClapTrap(copy), FragTrap(copy), ScavTrap(copy) {
 	std::cout << YELLOW "[DiamondTrap] copy constructor called" DEF << std::endl;
 	*this = copy;
 }
@@ -38,6 +36,7 @@ DiamondTrap::DiamondTrap(DiamondTrap const &copy) : FragTrap(copy.getName()), Sc
 DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &rhs) {
 	std::cout << YELLOW "[DiamondTrap] copy assignment operator called" DEF << std::endl;
 	_Name = rhs.getName();
+	ClapTrap::_Name = rhs.getName() + "_clap_name";
 	_HitPoints = rhs.getHitPoints();
 	_EnergyPoints = rhs.getEnergyPoints();
 	_AttackDamage = rhs.getAttackDamage();

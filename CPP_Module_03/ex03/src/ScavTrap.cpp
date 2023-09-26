@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:18:32 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 17:49:15 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:22:18 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 	_HitPoints = 100;
 	_EnergyPoints = 50;
 	_AttackDamage = 20;
+	_ScavEnergyPoints = 50;
 }
 
 ScavTrap::ScavTrap(std::string const &Name) : ClapTrap(Name) {
@@ -24,9 +25,10 @@ ScavTrap::ScavTrap(std::string const &Name) : ClapTrap(Name) {
 	_HitPoints = 100;
 	_EnergyPoints = 50;
 	_AttackDamage = 20;
+	_ScavEnergyPoints = 50;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &copy) : ClapTrap(copy.getName()) {
+ScavTrap::ScavTrap(ScavTrap const &copy) : ClapTrap(copy) {
 	std::cout << PURPLE "[ScavTrap] copy constructor called" DEF << std::endl;
 	*this = copy;
 }
@@ -36,6 +38,7 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs) {
 	_Name = rhs.getName();
 	_HitPoints = rhs.getHitPoints();
 	_EnergyPoints = rhs.getEnergyPoints();
+	_ScavEnergyPoints = rhs.getEnergyPoints();
 	_AttackDamage = rhs.getAttackDamage();
 
 	return *this;
