@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:20:12 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:43:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:09:23 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,58 @@ PhoneBook::PhoneBook(void) : _count(0), _trackOldestContact(0) {}
 
 PhoneBook::~PhoneBook(void) {}
 
+static bool is_alpha(std::string str) {
+	for (size_t i = 0; i < str.size(); i++) {
+		if (!((str.at(i) >= 'a' && str.at(i) <= 'z') || (str.at(i) >= 'A' && str.at(i) <= 'Z'))) {
+			return false;
+		}
+	}
+	return true;
+}
+
+static bool is_num(std::string str) {
+	for (size_t i = 0; i < str.size(); i++) {
+		if (!(str.at(i) >= '0' && str.at(i) <= '9')) {
+			return false;
+		}
+	}
+	return true;
+}
+
 static void	setContactInformation(Contact &newContact, std::string *infoType) {
 	system("clear");
 	std::cout << BLUE "Adding new contact, please enter the following information:" DEF << std::endl;
 
 	for (int i = 0; infoType[i].length(); i++) {
+		info:
 		std::string	line;
-
 		std::cout << infoType[i];
 		std::getline(std::cin, line);
 
+		if (std::cin.eof()) {
+			exit(1);
+		}
+
 		switch (i) {
 			case 0:
+				if (!is_alpha(line)) {
+					std::cout << RED "First name should only contain alphabets" DEF << std::endl;
+					goto info;
+				}
 				newContact.setFirstName(line); break;
 			case 1:
+				if (!is_alpha(line)) {
+					std::cout << RED "Last name shoudl only contain alphabets" DEF << std::endl;
+					goto info;
+				}
 				newContact.setLastName(line); break;
 			case 2:
 				newContact.setNickName(line); break;
 			case 3:
+				if (!is_num(line)) {
+					std::cout << RED "Phone number should only contain numbers" DEF << std::endl;
+					goto info;
+				}
 				newContact.setPhoneNumber(line); break;
 			case 4:
 				newContact.setDarkestSecret(line); break;

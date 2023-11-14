@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:43:21 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:06:33 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int	main( void ) {
 		std::cout << YELLOW "Enter a command (ADD, SEARCH, EXIT): " DEF;
 		std::getline(std::cin, command);
 
-		if (command == "ADD") {
+		if (std::cin.eof()) {
+			exit(1);
+		} else if (command == "ADD") {
 			phonebook.addContact();
 		} else if (command == "SEARCH") {
 			phonebook.searchContact();
