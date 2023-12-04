@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 18:08:41 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/23 20:07:05 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/29 10:31:25 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/12/01 18:03:35 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 #include "WrongCat.hpp"
 
 static void putSeparator() {
+
 	std::cout << std::endl;
 	std::cout << "------------------------------------------------------------" << std::endl;
 	std::cout << std::endl;
 }
 
-static void	Animals() {
+static void Animals() {
+
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -43,6 +45,7 @@ static void	Animals() {
 }
 
 static void WrongAnimals() {
+
 	const WrongAnimal* wrongAnimal = new WrongAnimal();
 	const WrongAnimal* wrongCat = new WrongCat();
 
@@ -61,6 +64,7 @@ static void WrongAnimals() {
 }
 
 int main() {
+
 	Animals();
 	putSeparator();
 	WrongAnimals();

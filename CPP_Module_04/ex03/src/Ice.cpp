@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:05:07 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:27:25 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/30 13:37:13 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/12/04 16:40:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Ice.hpp"
 
 /*
 * Orthodox canonical form:
@@ -20,43 +20,40 @@
 * - Copy assignment operator
 */
 
-Dog::Dog() : Animal("Dog") {
+Ice::Ice() : AMateria("ice") {
 
-	std::cout << "[Dog] Default constructor called" << std::endl;
-	_brain = new Brain("dog");
+	// std::cout << "[Ice] Default constructor called" << std::endl;
 }
 
-Dog::Dog(Dog const &copy) : Animal(copy._type) {
+Ice::Ice(Ice const &copy) : AMateria("ice") {
 
-	std::cout << "[Dog] Copy constructor called" << std::endl;
-	_brain = new Brain(*copy._brain);
+	// std::cout << "[Ice] Copy constructor called" << std::endl;
+	*this = copy;
 }
 
-Dog::~Dog() {
+Ice::~Ice() {
 
-	std::cout << "[Dog] Destructor called" << std::endl;
-	delete _brain;
+	// std::cout << "[Ice] Destructor called" << std::endl;
 }
 
-Dog &Dog::operator=(Dog const &rhs) {
+Ice &Ice::operator=(Ice const &rhs) {
 
-	std::cout << "[Dog] Copy assignment operator called" << std::endl;
+	// std::cout << "[Ice] Copy assignment operator called" << std::endl;
 
 	if (this != &rhs) {
 		_type = rhs._type;
-		*_brain = *rhs._brain;
 	}
 	return *this;
 }
 
 // End of the orthodox canonical form
 
-void Dog::makeSound() const {
+AMateria *Ice::clone() const {
 
-	std::cout << "[Dog] Waf waf" << std::endl;
+	return new Ice(*this);
 }
 
-void Dog::telepathy(int nbr) const {
+void Ice::use(ICharacter &target) {
 
-	_brain->sayIdeas(nbr);
+	std::cout << BLUE "* shoots an ice bolt at " << target.getName() << " *" << DEF << std::endl;
 }

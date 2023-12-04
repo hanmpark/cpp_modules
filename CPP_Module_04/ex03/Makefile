@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 16:04:48 by hanmpark          #+#    #+#              #
-#    Updated: 2023/11/30 16:24:58 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/12/04 16:24:09 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,11 @@ DEF = \033[0m
 # --------------------------------- Compiler --------------------------------- #
 SOURCES_PATH = ./src/
 SOURCES = ${addprefix ${SOURCES_PATH}, main.cpp \
-										Animal.cpp \
-										Cat.cpp \
-										Dog.cpp \
-										WrongAnimal.cpp \
-										WrongCat.cpp}
+										AMateria.cpp \
+										Cure.cpp \
+										Ice.cpp \
+										Character.cpp \
+										MateriaSource.cpp}
 
 OBJECTS = ${SOURCES:.cpp=.o}
 
@@ -36,7 +36,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 INC_PATH = ./inc/
 
 # ---------------------------------- Rules ----------------------------------- #
-NAME = Polymorphism
+NAME = Materia
 RM = rm -rf
 
 all: ${NAME}

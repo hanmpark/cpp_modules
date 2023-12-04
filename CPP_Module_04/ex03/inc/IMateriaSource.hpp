@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 10:23:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:29:58 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/30 14:19:20 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/11/30 15:05:32 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-# include <iostream>
+# include "AMateria.hpp"
 
-class Animal {
-
-	protected:
-		std::string _type;
+class IMateriaSource {
 
 	public:
-		Animal(); // Canonical form
-		Animal(Animal const &copy); // Canonical form
-		virtual ~Animal(); // Canonical form
-		Animal &operator=(Animal const &rhs); // Canonical form
-
-		Animal(std::string type);
-
-		std::string const getType() const;
-		virtual void makeSound() const;
-		virtual void telepathy(int nbr) const;
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria *) = 0;
+		virtual AMateria *createMateria(std::string const &type) = 0;
 };
 
 #endif

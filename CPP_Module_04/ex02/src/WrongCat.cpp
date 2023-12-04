@@ -5,33 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 19:43:13 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/23 19:48:38 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/29 13:20:17 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/11/29 13:21:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
+/*
+* Orthodox canonical form:
+* - Default constructor
+* - Copy constructor
+* - Destructor
+* - Copy assignment operator
+*/
+
 WrongCat::WrongCat() : WrongAnimal("WrongCat") {
-	std::cout << ROSE "[WrongCat] default constructor called" DEF << std::endl;
+
+	std::cout << "[WrongCat] Default constructor called" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const &copy) : WrongAnimal(copy.getType()) {
-	std::cout << ROSE "[WrongCat] copy constructor called" DEF << std::endl;
-	*this = copy;
-}
+WrongCat::WrongCat(WrongCat const &copy) : WrongAnimal(copy._type) {
 
-WrongCat &WrongCat::operator=(WrongCat const &rhs) {
-	std::cout << ROSE "[WrongCat] copy assignment operator called" DEF << std::endl;
-	_type = rhs.getType();
-
-	return *this;
+	std::cout << "[WrongCat] Copy constructor called" << std::endl;
 }
 
 WrongCat::~WrongCat() {
-	std::cout << ROSE "[WrongCat] destructor called" DEF << std::endl;
+
+	std::cout << "[WrongCat] Destructor called" << std::endl;
 }
 
+WrongCat &WrongCat::operator=(WrongCat const &rhs) {
+
+	std::cout << "[WrongCat] Copy assignment operator called" << std::endl;
+
+	if (this != &rhs) {
+		this->_type = rhs._type;
+	}
+	return *this;
+}
+
+// End of the orthodox canonical form
+
 void WrongCat::makeSound() const {
-	std::cout << ROSE "[WrongCat] - \"Meow meow\"" DEF << std::endl;
+
+	std::cout << "[WrongCat] Meow meow" << std::endl;
 }

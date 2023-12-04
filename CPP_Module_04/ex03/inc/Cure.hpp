@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 10:23:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:29:58 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/30 13:52:37 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/11/30 16:47:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include <iostream>
+# include "AMateria.hpp"
 
-class Animal {
-
-	protected:
-		std::string _type;
+class Cure : public AMateria {
 
 	public:
-		Animal(); // Canonical form
-		Animal(Animal const &copy); // Canonical form
-		virtual ~Animal(); // Canonical form
-		Animal &operator=(Animal const &rhs); // Canonical form
+		Cure(); // Canonical form
+		Cure(Cure const &copy); // Canonical form
+		virtual ~Cure(); // Canonical form
+		Cure &operator=(Cure const &rhs); // Canonical form
 
-		Animal(std::string type);
-
-		std::string const getType() const;
-		virtual void makeSound() const;
-		virtual void telepathy(int nbr) const;
+		virtual AMateria *clone() const;
+		virtual void use(ICharacter &target);
 };
 
 #endif

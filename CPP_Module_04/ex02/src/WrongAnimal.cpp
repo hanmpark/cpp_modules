@@ -5,41 +5,59 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 19:24:36 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/23 19:50:54 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/29 13:19:17 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/11/29 13:20:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
-	std::cout << PURPLE "[WrongAnimal] default constructor called" DEF << std::endl;
+/*
+* Orthodox canonical form:
+* - Default constructor
+* - Copy constructor
+* - Destructor
+* - Copy assignment operator
+*/
+
+WrongAnimal::WrongAnimal() : _type("Some unknown WrongAnimal") {
+
+	std::cout << "[WrongAnimal] Default constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(std::string const &type) : _type(type) {
-	std::cout << PURPLE "[WrongAnimal] string constructor called" DEF << std::endl;
-}
+WrongAnimal::WrongAnimal(WrongAnimal const &copy) : _type(copy._type) {
 
-WrongAnimal::WrongAnimal(WrongAnimal const &copy) {
-	std::cout << PURPLE "[WrongAnimal] copy constructor called" DEF << std::endl;
-	*this = copy;
-}
-
-WrongAnimal &WrongAnimal::operator=(WrongAnimal const &rhs) {
-	std::cout << PURPLE "[WrongAnimal] copy assignment operator called" DEF << std::endl;
-	_type = rhs.getType();
-
-	return *this;
+	std::cout << "[WrongAnimal] Copy constructor called" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal() {
-	std::cout << PURPLE "[WrongAnimal] destructor called" DEF << std::endl;
+
+	std::cout << "[WrongAnimal] Destructor called" << std::endl;
+}
+
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &rhs) {
+
+	std::cout << "[WrongAnimal] Copy assignment called" << std::endl;
+
+	if (this != &rhs) {
+		this->_type = rhs._type;
+	}
+	return *this;
+}
+
+// End of the orthodox canonical form
+
+WrongAnimal::WrongAnimal(std::string type) : _type(type) {
+
+	std::cout << "[WrongAnimal] String constructor called" << std::endl;
 }
 
 std::string const WrongAnimal::getType() const {
+
 	return _type;
 }
 
-void WrongAnimal::makeSound() const {
-	std::cout << PURPLE "[WrongAnimal] - \"...\"" DEF << std::endl;
+void	WrongAnimal::makeSound() const {
+
+	std::cout << "[WrongAnimal] * making weird animal noises *" << std::endl;
 }

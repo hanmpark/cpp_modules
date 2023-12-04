@@ -5,33 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 18:11:56 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/25 12:49:04 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/29 10:54:27 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/12/01 20:25:47 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-# define GREEN "\033[38;5;35m"
-
 class Dog : public Animal {
-public:
-	Dog();
-	Dog(Dog const &copy);
-	Dog &operator=(Dog const &rhs);
-	~Dog();
 
-	void makeSound() const;
-	std::string const getBrainIdea(int i) const;
-	Brain const *getBrain() const;
-	void setBrainIdea(int i, std::string idea);
+	private:
+		Brain *_brain;
 
-private:
-	Brain *_dogBrain;
+	public:
+		Dog(); // Canonical form
+		Dog(Dog const &copy); // Canonical form
+		virtual ~Dog(); // Canonical form
+		Dog &operator=(Dog const &rhs); // Canonical form
+
+		void makeSound() const;
+		void telepathy(int nbr) const;
 };
 
 #endif

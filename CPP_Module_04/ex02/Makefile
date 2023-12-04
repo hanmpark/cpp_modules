@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 16:04:48 by hanmpark          #+#    #+#              #
-#    Updated: 2023/09/25 12:59:51 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/11/30 16:43:48 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ DEF = \033[0m
 # --------------------------------- Compiler --------------------------------- #
 SOURCES_PATH = ./src/
 SOURCES = ${addprefix ${SOURCES_PATH}, main.cpp \
-										Animal.cpp \
+										AAnimal.cpp \
 										Cat.cpp \
 										Dog.cpp \
 										WrongAnimal.cpp \

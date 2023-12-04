@@ -5,48 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 18:21:53 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/25 12:53:15 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/29 11:42:53 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/12/01 20:32:28 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
+/*
+* Orthodox canonical form:
+* - Default constructor
+* - Copy constructor
+* - Destructor
+* - Copy assignment operator
+*/
+
 Cat::Cat() : Animal("Cat") {
-	std::cout << BLUE "[Cat] default constructor called" DEF << std::endl;
-	_catBrain = new Brain();
+
+	std::cout << "[Cat] Default constructor called" << std::endl;
+	_brain = new Brain("cat");
 }
 
-Cat::Cat(Cat const &copy) : Animal(copy.getType()) {
-	std::cout << BLUE "[Cat] copy constructor called" DEF << std::endl;
-	*this = copy;
-}
+Cat::Cat(Cat const &copy) : Animal(copy._type) {
 
-Cat &Cat::operator=(Cat const &rhs) {
-	std::cout << BLUE "[Cat] copy assignment operator called" DEF << std::endl;
-	_type = rhs.getType();
-	*_catBrain = *rhs._catBrain;
-
-	return *this;
+	std::cout << "[Cat] Copy constructor called" << std::endl;
+	_brain = new Brain(*copy._brain);
 }
 
 Cat::~Cat() {
-	delete _catBrain;
-	std::cout << BLUE "[Cat] destructor called" DEF << std::endl;
+
+	std::cout << "[Cat] Destructor called" << std::endl;
+	delete _brain;
 }
+
+Cat &Cat::operator=(Cat const &rhs) {
+
+	std::cout << "[Cat] Copy assignment operator called" << std::endl;
+
+	if (this != &rhs) {
+		_type = rhs._type;
+		*_brain = *rhs._brain;
+	}
+	return *this;
+}
+
+// End of the orthodox canonical form
 
 void Cat::makeSound() const {
-	std::cout << BLUE "[Cat] - \"Meow meow\"" DEF << std::endl;
+
+	std::cout << "[Cat] Meow meow" << std::endl;
 }
 
-std::string const Cat::getBrainIdea(int i) const {
-	return _catBrain->getIdea(i);
-}
+void Cat::telepathy(int nbr) const {
 
-Brain const *Cat::getBrain() const {
-	return _catBrain;
-}
-
-void Cat::setBrainIdea(int i, std::string idea) {
-	return _catBrain->setIdea(i, idea);
+	_brain->sayIdeas(nbr);
 }

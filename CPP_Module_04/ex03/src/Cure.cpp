@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:05:07 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:27:25 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/30 13:53:09 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/12/04 16:40:17 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cure.hpp"
 
 /*
 * Orthodox canonical form:
@@ -20,43 +20,40 @@
 * - Copy assignment operator
 */
 
-Dog::Dog() : Animal("Dog") {
+Cure::Cure() : AMateria("cure") {
 
-	std::cout << "[Dog] Default constructor called" << std::endl;
-	_brain = new Brain("dog");
+	// std::cout << "[Cure] Default constructor called" << std::endl;
 }
 
-Dog::Dog(Dog const &copy) : Animal(copy._type) {
+Cure::Cure(Cure const &copy) : AMateria("cure") {
 
-	std::cout << "[Dog] Copy constructor called" << std::endl;
-	_brain = new Brain(*copy._brain);
+	// std::cout << "[Cure] Copy constructor called" << std::endl;
+	*this = copy;
 }
 
-Dog::~Dog() {
+Cure::~Cure() {
 
-	std::cout << "[Dog] Destructor called" << std::endl;
-	delete _brain;
+	// std::cout << "[Cure] Destructor called" << std::endl;
 }
 
-Dog &Dog::operator=(Dog const &rhs) {
+Cure &Cure::operator=(Cure const &rhs) {
 
-	std::cout << "[Dog] Copy assignment operator called" << std::endl;
+	// std::cout << "[Cure] Copy assignment operator called" << std::endl;
 
 	if (this != &rhs) {
 		_type = rhs._type;
-		*_brain = *rhs._brain;
 	}
 	return *this;
 }
 
 // End of the orthodox canonical form
 
-void Dog::makeSound() const {
+AMateria *Cure::clone() const {
 
-	std::cout << "[Dog] Waf waf" << std::endl;
+	return new Cure(*this);
 }
 
-void Dog::telepathy(int nbr) const {
+void Cure::use(ICharacter &target) {
 
-	_brain->sayIdeas(nbr);
+	std::cout << BLUE "* heals " << target.getName() << "'s wounds *" DEF << std::endl;
 }

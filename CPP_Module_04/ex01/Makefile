@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 16:04:48 by hanmpark          #+#    #+#              #
-#    Updated: 2023/09/25 12:56:26 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/11/30 16:26:46 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,11 @@ OBJECTS = ${SOURCES:.cpp=.o}
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-INC_PATH = ./inc/
 
 # ---------------------------------- Rules ----------------------------------- #
 NAME = Brain
 RM = rm -rf
+INC_PATH = ./inc/
 
 all: ${NAME}
 

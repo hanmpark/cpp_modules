@@ -5,33 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 18:21:58 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/23 19:01:53 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/29 11:05:07 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/11/29 12:32:45 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+/*
+* Orthodox canonical form:
+* - Default constructor
+* - Copy constructor
+* - Destructor
+* - Copy assignment operator
+*/
+
 Dog::Dog() : Animal("Dog") {
-	std::cout << GREEN "[Dog] default constructor called" DEF << std::endl;
+
+	std::cout << "[Dog] Default constructor called" << std::endl;
 }
 
-Dog::Dog(Dog const &copy) : Animal(copy.getType()) {
-	std::cout << GREEN "[Dog] copy constructor called" DEF << std::endl;
-	*this = copy;
-}
+Dog::Dog(Dog const &copy) : Animal(copy._type) {
 
-Dog &Dog::operator=(Dog const &rhs) {
-	std::cout << GREEN "[Dog] copy assignment operator called" DEF << std::endl;
-	_type = rhs.getType();
-
-	return *this;
+	std::cout << "[Dog] Copy constructor called" << std::endl;
 }
 
 Dog::~Dog() {
-	std::cout << GREEN "[Dog] destructor called" DEF << std::endl;
+
+	std::cout << "[Dog] Destructor called" << std::endl;
 }
 
+Dog &Dog::operator=(Dog const &rhs) {
+
+	std::cout << "[Dog] Copy assignment operator called" << std::endl;
+
+	if (this != &rhs) {
+		this->_type = rhs._type;
+	}
+	return *this;
+}
+
+// End of the orthodox canonical form
+
 void Dog::makeSound() const {
-	std::cout << GREEN "[Dog] - \"Bark bark\"" DEF << std::endl;
+
+	std::cout << "[Dog] Waf waf" << std::endl;
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 19:11:16 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/23 19:46:28 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/29 13:14:07 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/11/29 13:17:20 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,21 @@
 
 # include <iostream>
 
-# define PURPLE "\033[38;5;93m"
-# define DEF "\033[0m"
-
 class WrongAnimal {
-public:
-	WrongAnimal();
-	WrongAnimal(std::string const &type);
-	WrongAnimal(WrongAnimal const &copy);
-	WrongAnimal &operator=(WrongAnimal const &rhs);
-	~WrongAnimal();
 
-	std::string const getType() const;
-	void makeSound() const;
+	protected:
+		std::string _type;
 
-protected:
-	std::string _type;
+	public:
+		WrongAnimal(); // Canonical form
+		WrongAnimal(WrongAnimal const &copy); // Canonical form
+		virtual ~WrongAnimal(); // Canonical form
+		WrongAnimal &operator=(WrongAnimal const &rhs); // Canonical form
+
+		WrongAnimal(std::string type);
+
+		std::string const getType() const;
+		void makeSound() const;
 };
 
 #endif

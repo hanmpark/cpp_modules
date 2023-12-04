@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 10:23:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:29:58 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/30 13:53:59 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/12/04 16:05:31 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-# include <iostream>
+# include "AMateria.hpp"
 
-class Animal {
+class AMateria;
 
-	protected:
-		std::string _type;
+class ICharacter {
 
 	public:
-		Animal(); // Canonical form
-		Animal(Animal const &copy); // Canonical form
-		virtual ~Animal(); // Canonical form
-		Animal &operator=(Animal const &rhs); // Canonical form
-
-		Animal(std::string type);
-
-		std::string const getType() const;
-		virtual void makeSound() const;
-		virtual void telepathy(int nbr) const;
+		virtual ~ICharacter() {}
+		virtual std::string const &getName() const = 0;
+		virtual void equip(AMateria *m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter &target) = 0;
+		virtual void checkground() const = 0;
 };
 
 #endif

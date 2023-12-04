@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 18:08:41 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/25 13:12:12 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/29 10:31:25 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/12/01 20:26:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,83 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
+static void putSeparator() {
+
+	std::cout << std::endl;
+	std::cout << "------------------------------------------------------------" << std::endl;
+	std::cout << std::endl;
+}
+
+static void Animals() {
+
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+
+	std::cout << std::endl;
+	std::cout << "j is a " << j->getType() << std::endl;
+	std::cout << "i is a " << i->getType() << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "Their sound:" << std::endl;
+	i->makeSound();
+	j->makeSound();
+	std::cout << std::endl;
+
+	delete j;
+	delete i;
+}
+
+static void WrongAnimals() {
+
+	const WrongAnimal* wrongAnimal = new WrongAnimal();
+	const WrongAnimal* wrongCat = new WrongCat();
+
+	std::cout << std::endl;
+	std::cout << "meta is a " << wrongAnimal->getType() << std::endl;
+	std::cout << "cat is a " << wrongCat->getType() << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "Their sound:" << std::endl;
+	wrongAnimal->makeSound();
+	wrongCat->makeSound();
+	std::cout << std::endl;
+
+	delete wrongAnimal;
+	delete wrongCat;
+}
+
 int main() {
 
-	Animal *animal1 = new Cat();
-	Animal *animal2 = new Dog();
+	Animals();
+	putSeparator();
+	WrongAnimals();
 
 	std::cout << std::endl;
-	std::cout << "animal1 is a " << animal1->getType() << std::endl;
-	std::cout << "animal2 is a " << animal2->getType() << std::endl;
-	animal1->makeSound();
-	animal2->makeSound();
-	std::cout << std::endl;
 
-	delete animal1;
-	delete animal2;
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+
+	delete j; // should not create a leak
+	delete i;
+
+	std::cout << std::endl;
+	Animal* animals[4] = {new Dog(), new Cat(), new Dog(), new Cat()};
+
+	for (int i = 0; i < 4; i++) {
+		animals[i]->makeSound();
+		delete animals[i];
+		animals[i] = NULL;
+	}
+
+	std::cout << std::endl;
+	Dog tmp;
+	{
+		Dog copy = tmp;
+		copy.getType();
+		copy.makeSound();
+		copy.telepathy(3);
+	}
+	std::cout << std::endl;
 
 	return 0;
 }

@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 18:09:21 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/25 13:00:38 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/30 13:33:38 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/11/30 16:47:48 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-# include <iostream>
+# include "AMateria.hpp"
 
-# define YELLOW "\033[38;5;184m"
-# define DEF "\033[0m"
+class Ice : public AMateria {
 
-class Animal {
-public:
-	Animal();
-	Animal(std::string const &type);
-	Animal(Animal const &copy);
-	Animal &operator=(Animal const &rhs);
-	virtual ~Animal();
+	public:
+		Ice(); // Canonical form
+		Ice(Ice const &copy); // Canonical form
+		virtual ~Ice(); // Canonical form
+		Ice &operator=(Ice const &rhs); // Canonical form
 
-	std::string const getType() const;
-	virtual void makeSound() const = 0;
-
-protected:
-	std::string _type;
+		virtual AMateria *clone() const;
+		virtual void use(ICharacter &target);
 };
 
 #endif

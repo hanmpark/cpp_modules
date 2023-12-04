@@ -5,48 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 18:21:58 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/25 12:53:12 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/29 11:05:07 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/12/01 20:32:32 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+/*
+* Orthodox canonical form:
+* - Default constructor
+* - Copy constructor
+* - Destructor
+* - Copy assignment operator
+*/
+
 Dog::Dog() : Animal("Dog") {
-	std::cout << GREEN "[Dog] default constructor called" DEF << std::endl;
-	_dogBrain = new Brain();
+
+	std::cout << "[Dog] Default constructor called" << std::endl;
+	_brain = new Brain("dog");
 }
 
-Dog::Dog(Dog const &copy) : Animal(copy.getType()) {
-	std::cout << GREEN "[Dog] copy constructor called" DEF << std::endl;
-	*this = copy;
-}
+Dog::Dog(Dog const &copy) : Animal(copy._type) {
 
-Dog &Dog::operator=(Dog const &rhs) {
-	std::cout << GREEN "[Dog] copy assignment operator called" DEF << std::endl;
-	_type = rhs.getType();
-	*_dogBrain = *rhs._dogBrain;
-
-	return *this;
+	std::cout << "[Dog] Copy constructor called" << std::endl;
+	_brain = new Brain(*copy._brain);
 }
 
 Dog::~Dog() {
-	delete _dogBrain;
-	std::cout << GREEN "[Dog] destructor called" DEF << std::endl;
+
+	std::cout << "[Dog] Destructor called" << std::endl;
+	delete _brain;
 }
+
+Dog &Dog::operator=(Dog const &rhs) {
+
+	std::cout << "[Dog] Copy assignment operator called" << std::endl;
+
+	if (this != &rhs) {
+		_type = rhs._type;
+		*_brain = *rhs._brain;
+	}
+	return *this;
+}
+
+// End of the orthodox canonical form
 
 void Dog::makeSound() const {
-	std::cout << GREEN "[Dog] - \"Bark bark\"" DEF << std::endl;
+
+	std::cout << "[Dog] Waf waf" << std::endl;
 }
 
-std::string const Dog::getBrainIdea(int i) const {
-	return _dogBrain->getIdea(i);
-}
+void Dog::telepathy(int nbr) const {
 
-Brain const *Dog::getBrain() const {
-	return _dogBrain;
-}
-
-void Dog::setBrainIdea(int i, std::string idea) {
-	return _dogBrain->setIdea(i, idea);
+	_brain->sayIdeas(nbr);
 }

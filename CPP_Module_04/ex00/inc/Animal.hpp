@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 18:09:21 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/23 19:42:33 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/17 10:23:06 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/11/29 12:59:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,21 @@
 
 # include <iostream>
 
-# define YELLOW "\033[38;5;184m"
-# define DEF "\033[0m"
-
 class Animal {
-public:
-	Animal();
-	Animal(std::string const &type);
-	Animal(Animal const &copy);
-	Animal &operator=(Animal const &rhs);
-	virtual ~Animal();
 
-	std::string const getType() const;
-	virtual void makeSound() const;
+	protected:
+		std::string _type;
 
-protected:
-	std::string _type;
+	public:
+		Animal(); // Canonical form
+		Animal(Animal const &copy); // Canonical form
+		virtual ~Animal(); // Canonical form
+		Animal &operator=(Animal const &rhs); // Canonical form
+
+		Animal(std::string type);
+
+		std::string const getType() const;
+		virtual void makeSound() const;
 };
 
 #endif

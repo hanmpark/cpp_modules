@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 18:11:56 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/23 19:01:15 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/11/29 10:54:27 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/11/30 16:46:39 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 
 # include "Animal.hpp"
 
-# define GREEN "\033[38;5;35m"
-
 class Dog : public Animal {
-public:
-	Dog();
-	Dog(Dog const &copy);
-	Dog &operator=(Dog const &rhs);
-	~Dog();
 
-	void makeSound() const; 
+	public:
+		Dog(); // Canonical form
+		Dog(Dog const &copy); // Canonical form
+		virtual ~Dog(); // Canonical form
+		Dog &operator=(Dog const &rhs); // Canonical form
+
+		void makeSound() const;
 };
 
 #endif

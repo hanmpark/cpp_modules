@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:37:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:33:12 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:51:45 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 /*
 * Orthodox canonical form:
@@ -40,7 +40,7 @@ Animal &Animal::operator=(Animal const &rhs) {
 	std::cout << "[Animal] Copy assignment called" << std::endl;
 
 	if (this != &rhs) {
-		_type = rhs._type;
+		this->_type = rhs._type;
 	}
 	return *this;
 }
@@ -55,15 +55,4 @@ Animal::Animal(std::string type) : _type(type) {
 std::string const Animal::getType() const {
 
 	return _type;
-}
-
-void Animal::makeSound() const {
-
-	std::cout << "[Animal] * making weird animal noises *" << std::endl;
-}
-
-void Animal::telepathy(int nbr) const {
-
-	(void)nbr;
-	std::cout << "[Animal] No brain was made" << std::endl;
 }
