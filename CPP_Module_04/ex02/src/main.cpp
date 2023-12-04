@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:31:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:26:44 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:18:06 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static void putSeparator() {
 
 static void Animals() {
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 
 	std::cout << std::endl;
 	std::cout << "j is a " << j->getType() << std::endl;
@@ -67,14 +67,14 @@ int main() {
 
 	std::cout << std::endl;
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 
 	delete j; // should not create a leak
 	delete i;
 
 	std::cout << std::endl;
-	Animal* animals[4] = {new Dog(), new Cat(), new Dog(), new Cat()};
+	AAnimal* animals[4] = {new Dog(), new Cat(), new Dog(), new Cat()};
 
 	for (int i = 0; i < 4; i++) {
 		animals[i]->makeSound();

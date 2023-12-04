@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:54:27 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:25:47 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:17:20 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog : public AAnimal {
 
 	private:
 		Brain *_brain;

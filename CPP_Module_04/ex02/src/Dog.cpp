@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:05:07 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:27:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:21:23 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 * - Copy assignment operator
 */
 
-Dog::Dog() : Animal("Dog") {
+Dog::Dog() : AAnimal("Dog") {
 
 	std::cout << "[Dog] Default constructor called" << std::endl;
 	_brain = new Brain("dog");
 }
 
-Dog::Dog(Dog const &copy) : Animal(copy._type) {
+Dog::Dog(Dog const &copy) : AAnimal(copy._type) {
 
 	std::cout << "[Dog] Copy constructor called" << std::endl;
 	_brain = new Brain(*copy._brain);
