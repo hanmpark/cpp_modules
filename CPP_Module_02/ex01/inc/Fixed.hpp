@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:53:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 17:31:30 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:13:43 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,28 @@
 
 #include <iostream>
 
-class	Fixed {
-public:
-	Fixed(void);
-	Fixed(Fixed const &copy);
-	Fixed	&operator=(Fixed const &rhs);
-	~Fixed(void);
+class Fixed {
 
-	Fixed(int const d);
-	Fixed(float const f);
+	public:
+		Fixed(void);
+		Fixed(Fixed const &copy);
+		Fixed &operator=(Fixed const &rhs);
+		~Fixed(void);
 
-	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
+		Fixed(int const d);
+		Fixed(float const f);
 
-	float	toFloat(void) const;
-	int		toInt(void) const;
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
 
-private:
-	int					_fixedPointValue;
-	static int const	_fractionalBits = 8;
+		float toFloat(void) const;
+		int toInt(void) const;
+
+	private:
+		int _fixedPointValue;
+		static int const _fractionalBits = 8;
 };
 
-std::ostream	&operator<<(std::ostream &o, Fixed const &fp);
+std::ostream &operator<<(std::ostream &o, Fixed const &fp);
 
 #endif

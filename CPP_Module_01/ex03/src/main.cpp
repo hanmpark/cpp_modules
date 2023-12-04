@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:26:43 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:41:11 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:09:20 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "HumanB.hpp"
 
 int	main(void) {
+
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
@@ -33,5 +34,6 @@ int	main(void) {
 		HumanB jon("Jon");
 		jon.attack();
 	}
+
 	return 0;
 }

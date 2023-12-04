@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/11/14 15:06:33 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:00:56 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 #include <cstdlib>
 
-int	main( void ) {
-	PhoneBook	phonebook;
+int main( void ) {
+
+	PhoneBook phonebook;
 
 	while (1) {
-		std::string	command;
+		std::string command;
 		std::cout << YELLOW "Enter a command (ADD, SEARCH, EXIT): " DEF;
 		std::getline(std::cin, command);
 
@@ -35,5 +36,6 @@ int	main( void ) {
 			std::cout << RED "Command does not exist" DEF << std::endl;
 		}
 	}
+
 	return 0;
 }

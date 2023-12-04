@@ -6,19 +6,21 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:02:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 20:38:22 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:28:43 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-static void	putSeparator() {
+static void putSeparator() {
+
 	std::cout << "------------------------------------------------------------" << std::endl;
 }
 
-int	main() {
-	DiamondTrap	Diamond("Diamond");
-	FragTrap	Fraggy("Fraggy");
+int main() {
+
+	DiamondTrap Diamond("Diamond");
+	FragTrap Fraggy("Fraggy");
 
 	std::cout << std::endl;
 	putSeparator();

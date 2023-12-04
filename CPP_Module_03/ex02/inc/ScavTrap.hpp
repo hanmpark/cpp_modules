@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:41:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/26 15:29:45 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:24:01 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@
 # define PURPLE "\033[38;5;134m"
 
 class ScavTrap : public ClapTrap {
-public:
-	ScavTrap();
-	ScavTrap(std::string const &Name);
-	ScavTrap(ScavTrap const &copy);
-	ScavTrap &operator=(ScavTrap const &rhs);
-	~ScavTrap();
 
-	void attack(const std::string &target);
-	void guardGate();
+	public:
+		ScavTrap();
+		ScavTrap(std::string const &Name);
+		ScavTrap(ScavTrap const &copy);
+		ScavTrap &operator=(ScavTrap const &rhs);
+		~ScavTrap();
+
+		void attack(const std::string &target);
+		void guardGate();
 };
 
 #endif

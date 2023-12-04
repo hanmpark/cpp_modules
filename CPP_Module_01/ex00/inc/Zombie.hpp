@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:56:03 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:39:36 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:05:56 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,28 @@
 
 # include <iostream>
 
-/* Colors */
-
 # define RED "\033[38;5;204m"
 # define GREEN "\033[38;5;80m"
 # define DEF "\033[0m"
 
-/* Class */
+class Zombie {
 
-class	Zombie {
-public:
-	Zombie(void);
-	~Zombie(void);
+	public:
+		Zombie(void);
+		~Zombie(void);
 
-	void		setName(std::string);
-	std::string	getName(void) const;
+		void setName(std::string);
+		std::string getName(void) const;
 
-	void	announce(void) const;
+		void announce(void) const;
 
-private:
-	std::string	_name;
+	private:
+		std::string _name;
 };
 
 /* Prototypes */
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie *newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif

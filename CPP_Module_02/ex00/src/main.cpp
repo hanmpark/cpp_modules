@@ -6,16 +6,17 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:54:17 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:39:21 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:13:18 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int	main(void) {
-	Fixed	a;
-	Fixed	b(a);
-	Fixed	c;
+
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
 
 	c = b;
 

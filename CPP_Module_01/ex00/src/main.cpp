@@ -6,14 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:56:33 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:39:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:06:15 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-static std::string	setZombieName(std::string from) {
-	std::string	zombieName;
+static std::string setZombieName(std::string from) {
+
+	std::string zombieName;
 
 	std::cout << GREEN "Creating a zombie from the " << from << DEF << std::endl;
 	std::cout << "Choose a name for the Zombie: ";
@@ -22,9 +23,10 @@ static std::string	setZombieName(std::string from) {
 	return zombieName;
 }
 
-int	main(void) {
+int main(void) {
+
 	/* Zombie from heap */
-	Zombie	*heapZombie = newZombie(setZombieName("heap"));
+	Zombie *heapZombie = newZombie(setZombieName("heap"));
 	heapZombie->announce();
 	std::cout << RED << heapZombie->getName() << " doesn't like its name, he prefers Marcus" DEF << std::endl;
 	heapZombie->setName("Marcus");

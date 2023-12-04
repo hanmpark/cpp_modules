@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 00:57:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/12 11:41:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:10:13 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 #define GREEN "\033[38;5;80m"
 #define DEF "\033[0m"
 
-static bool	getContent(std::string const fileName, std::string &content, std::string const occurrence, std::string const replace) {
-	std::ifstream	ifs;
+static bool getContent(std::string const fileName, std::string &content, std::string const occurrence, std::string const replace) {
+
+	std::ifstream ifs;
 	ifs.open(fileName, std::ifstream::in);
 	if (!ifs.is_open()) {
 		return false;
@@ -27,8 +28,8 @@ static bool	getContent(std::string const fileName, std::string &content, std::st
 	std::getline(ifs, content, '\0');
 	ifs.close();
 
-	size_t	pos;
-	int		countOccurrence = 0;
+	size_t pos;
+	int countOccurrence = 0;
 	while ((pos = content.find(occurrence)) != std::string::npos) {
 		content.erase(pos, occurrence.size());
 		content.insert(pos, replace);
@@ -46,22 +47,23 @@ static bool	getContent(std::string const fileName, std::string &content, std::st
 }
 
 int	main(int argc, char **argv) {
+
 	if (argc != 4) {
 		std::cerr << RED "Error: Wrong number of arguments" DEF << std::endl;
 		return 1;
 	}
 
-	std::string const	occurrence = argv[2];
-	std::string const	replace = argv[3];
-	std::string			fileName = argv[1];
-	std::string			content;
+	std::string const occurrence = argv[2];
+	std::string const replace = argv[3];
+	std::string fileName = argv[1];
+	std::string content;
 
 	if (!getContent(fileName, content, occurrence, replace)) {
 		std::cerr << RED "Error: Something wrong occurred opening/reading the file" DEF << std::endl;
 		return 1;
 	}
 
-	std::ofstream	ofs;
+	std::ofstream ofs;
 	ofs.open(fileName.append(".replace"), std::ofstream::out);
 	ofs << content;
 	ofs.close();

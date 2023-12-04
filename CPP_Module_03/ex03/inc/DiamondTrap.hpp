@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:08:12 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/26 15:31:03 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:26:16 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,19 @@
 # define YELLOW "\033[38;5;227m"
 
 class DiamondTrap : public FragTrap, public ScavTrap {
-public:
-	DiamondTrap();
-	DiamondTrap(std::string const &Name);
-	DiamondTrap(DiamondTrap const &copy);
-	DiamondTrap &operator=(DiamondTrap const &rhs);
-	~DiamondTrap();
 
-	void attack(const std::string &target);
-	void whoAmI();
+	public:
+		DiamondTrap();
+		DiamondTrap(std::string const &Name);
+		DiamondTrap(DiamondTrap const &copy);
+		DiamondTrap &operator=(DiamondTrap const &rhs);
+		~DiamondTrap();
 
-private:
-	std::string _Name;
+		void attack(const std::string &target);
+		void whoAmI();
+
+	private:
+		std::string _Name;
 };
 
 #endif

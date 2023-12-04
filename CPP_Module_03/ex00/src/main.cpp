@@ -6,19 +6,21 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:02:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/22 13:32:51 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:21:45 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-static void	putSeparator() {
+static void putSeparator() {
+
 	std::cout << "------------------------------------------------------------" << std::endl;
 }
 
-int	main() {
-	ClapTrap	Clappy1("Clappy1");
-	ClapTrap	Clappy2("Clappy2");
+int main() {
+
+	ClapTrap Clappy1("Clappy1");
+	ClapTrap Clappy2("Clappy2");
 
 	std::cout << std::endl;
 	putSeparator();
@@ -37,7 +39,7 @@ int	main() {
 	std::cout << "Clappy2 has " << Clappy2.getHitPoints() << " hit points." << std::endl;
 	std::cout << std::endl;
 
-	ClapTrap	CopyClap(Clappy2);
+	ClapTrap CopyClap(Clappy2);
 	std::cout << "Object CopyClap is called " << CopyClap.getName() << " and has " << CopyClap.getHitPoints() << std::endl;
 	std::cout << std::endl;
 
