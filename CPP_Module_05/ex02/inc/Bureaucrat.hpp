@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:29:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/13 13:16:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:56:22 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <iostream>
 # include <exception>
 
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 private:
@@ -33,13 +33,14 @@ public:
 	Bureaucrat	(std::string const &name, int grade);
 
 	// Getters
-	std::string const	getName() const;
-	int 				getGrade() const;
+	std::string	getName() const;
+	int 		getGrade() const;
 
 	// Methods
 	void	incGrade();
 	void	decGrade();
-	void	signForm(Form &form) const;
+	void	signForm(AForm &form) const;
+	void	executeForm(AForm const &form);
 
 	// Exceptions
 	class GradeTooHighException : public std::exception {

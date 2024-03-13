@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:29:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/12 16:01:17 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:17:03 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <exception>
 
 class Bureaucrat {
+private:
+	std::string const	_name;
+	int					_grade;
+
 public:
 	Bureaucrat(); // Canonical form
 	Bureaucrat(Bureaucrat const &copy); // Canonical form
@@ -45,10 +49,6 @@ public:
 			return "Grade is too low";
 		}
 	};
-
-private:
-	std::string const	_name;
-	int					_grade;
 };
 
 std::ostream& operator<<(std::ostream &o, Bureaucrat const &rhs);

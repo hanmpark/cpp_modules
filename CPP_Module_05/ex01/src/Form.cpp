@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:46:44 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/12 16:05:59 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:09:12 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@
  * - Destructor
  * - Copy assignment operator
  */
-
-Form::Form() :	_name("Some form"), \
-				_signed(false), \
-				_gradeToSign(150), \
-				_gradeToExecute(0) {}
 
 Form::Form(Form const &copy) :	_name(copy._name), \
 								_signed(copy._signed), \
