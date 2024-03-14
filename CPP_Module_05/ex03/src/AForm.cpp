@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:46:44 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/14 10:48:20 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:23:00 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ AForm::AForm(AForm const &copy) :	_name(copy._name), \
 AForm::~AForm() {}
 
 AForm	&AForm::operator=(AForm const &rhs) {
-	if (this != &rhs) {
+	if (this != &rhs)
 		_signed = rhs._signed;
-	}
 	return *this;
 }
 

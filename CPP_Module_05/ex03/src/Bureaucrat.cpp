@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:29:40 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/14 10:49:16 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:23:08 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ Bureaucrat::Bureaucrat(Bureaucrat const &copy) :	_name(copy._name), \
 Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &rhs) {
-	if (this != &rhs) {
+	if (this != &rhs)
 		_grade = rhs.getGrade();
-	}
 	return *this;
 }
 
