@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:29:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/13 15:56:22 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:49:38 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,11 @@ public:
 	// Exceptions
 	class GradeTooHighException : public std::exception {
 	public:
-		virtual const char	*what() const throw() {
-			return "Grade is too high";
-		}
+		virtual char const	*what() const throw();
 	};
 	class GradeTooLowException : public std::exception {
 	public:
-		virtual const char	*what() const throw() {
-			return "Grade is too low";
-		}
+		virtual char const	*what() const throw();
 	};
 };
 

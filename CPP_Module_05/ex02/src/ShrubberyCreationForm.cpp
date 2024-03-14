@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:34:55 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/13 16:02:22 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:41:10 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,10 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &bureaucrat) const {
 	file << "                   ;%@@@@%%:;;;.                   " << std::endl;
 	file << "               ...;%@@@@@%%:;;;;,..                " << std::endl;
 	file.close();
+}
+
+// Exception
+
+char const	*ShrubberyCreationForm::CreateFileException::what() const throw() {
+	return "Could not create the file";
 }

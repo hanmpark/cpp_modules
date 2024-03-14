@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:17:51 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/13 15:01:57 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:50:58 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ public:
 	// Exception
 	class CreateFileException : public std::exception {
 	public:
-		virtual const char *what() const throw() {
-			return "Could not create the file";
-		}
+		virtual char const	*what() const throw();
 	};
 };
 

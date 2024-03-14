@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:29:40 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/12 16:03:43 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:56:11 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	Bureaucrat::getGrade() const {
 
 // -----------------------------------------
 
+// Methods
+
 void	Bureaucrat::incGrade() {
 	if (_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -73,4 +75,14 @@ void	Bureaucrat::decGrade() {
 std::ostream	&operator<<(std::ostream &o, Bureaucrat const &rhs) {
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 	return o;
+}
+
+// Exceptions
+
+char const	*Bureaucrat::GradeTooHighException::what() const throw() {
+	return "Grade is too high";
+}
+
+char const	*Bureaucrat::GradeTooLowException::what() const throw() {
+	return "Grade is too low";
 }

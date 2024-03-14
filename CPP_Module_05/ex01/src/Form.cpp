@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:46:44 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/13 15:09:12 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:54:13 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,20 @@ std::ostream	&operator<<(std::ostream &o, Form const &rhs) {
 	return o;
 }
 
+// Method
+
 void	Form::beSigned(Bureaucrat const &bureaucrat) {
 	if (bureaucrat.getGrade() > _gradeToSign)
 		throw Form::GradeTooLowException();
 	_signed = true;
+}
+
+// Exceptions
+
+char const	*Form::GradeTooHighException::what() const throw() {
+	return "Grade is too high";
+}
+
+char const	*Form::GradeTooLowException::what() const throw() {
+	return "Grade is too Low";
 }

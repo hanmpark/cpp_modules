@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:29:40 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/13 16:13:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:49:49 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	Bureaucrat::getGrade() const {
 
 // -----------------------------------------
 
+// Methods
+
 void	Bureaucrat::incGrade() {
 	if (_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -91,4 +93,14 @@ void	Bureaucrat::executeForm(AForm const &form) {
 	} catch (std::exception &e) {
 		std::cout << _name << " couldn't execute the " << form.getName() << " because " << e.what() << std::endl;
 	}
+}
+
+// Exceptions
+
+char const	*Bureaucrat::GradeTooHighException::what() const throw() {
+	return "Grade is too high";
+}
+
+char const	*Bureaucrat::GradeTooLowException::what() const throw() {
+	return "Grade is too low";
 }

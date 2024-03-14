@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:19 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/13 18:16:34 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:35:06 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct t_dispatch_form {
 	std::string const	name;
-	AForm				*func;
+	AForm				*ret;
 }	t_dispatch_form;
 
 class Intern {
@@ -32,6 +32,10 @@ public:
 
 	// Method
 	AForm	*makeForm(std::string const &formName, std::string const &target);
+	class NotFoundFormException : public std::exception {
+	public:
+		virtual char const *what() const throw();
+	};
 };
 
 #endif
