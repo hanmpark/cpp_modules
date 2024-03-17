@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 19:37:02 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/16 14:38:19 by hanmpark         ###   ########.fr       */
+/*   Created: 2024/03/16 14:43:29 by hanmpark          #+#    #+#             */
+/*   Updated: 2024/03/17 12:11:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef B_HPP
+# define B_HPP
 
-# include <iostream>
-# include <stdint.h>
+# include "Base.hpp"
 
-# include "Data.hpp"
-
-struct Data;
-
-class Serializer {
-private:
-	Serializer();
-
+class B : public Base {
 public:
-	static uintptr_t	serialize(Data *ptr);
-	static Data			*deserialize(uintptr_t raw);
+	~B();
 };
 
 #endif

@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 19:37:02 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/16 14:38:19 by hanmpark         ###   ########.fr       */
+/*   Created: 2024/03/15 21:47:58 by hanmpark          #+#    #+#             */
+/*   Updated: 2024/03/15 21:51:58 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#include "Serializer.hpp"
 
-# include <iostream>
-# include <stdint.h>
+uintptr_t	Serializer::serialize(Data *ptr) {
+	return reinterpret_cast<uintptr_t>(ptr);
+}
 
-# include "Data.hpp"
-
-struct Data;
-
-class Serializer {
-private:
-	Serializer();
-
-public:
-	static uintptr_t	serialize(Data *ptr);
-	static Data			*deserialize(uintptr_t raw);
-};
-
-#endif
+Data	*Serializer::deserialize(uintptr_t raw) {
+	return reinterpret_cast<Data *>(raw);
+}

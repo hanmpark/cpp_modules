@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 19:37:02 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/16 14:38:19 by hanmpark         ###   ########.fr       */
+/*   Created: 2024/03/16 14:41:38 by hanmpark          #+#    #+#             */
+/*   Updated: 2024/03/16 14:43:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
-# include <iostream>
-# include <stdint.h>
-
-# include "Data.hpp"
-
-struct Data;
-
-class Serializer {
-private:
-	Serializer();
-
+class Base {
 public:
-	static uintptr_t	serialize(Data *ptr);
-	static Data			*deserialize(uintptr_t raw);
+	virtual ~Base();
 };
 
 #endif

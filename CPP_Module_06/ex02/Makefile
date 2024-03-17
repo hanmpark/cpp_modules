@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 16:04:48 by hanmpark          #+#    #+#              #
-#    Updated: 2024/03/16 14:38:05 by hanmpark         ###   ########.fr        #
+#    Updated: 2024/03/16 17:28:20 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,11 @@ DEF = \033[0m
 
 # --------------------------------- Compiler --------------------------------- #
 SOURCES_PATH = ./src/
-SOURCES = ${addprefix ${SOURCES_PATH}, main.cpp \
-										Serializer.cpp}
+SOURCES = ${addprefix ${SOURCES_PATH},	main.cpp \
+										Base.cpp \
+										A.cpp \
+										B.cpp \
+										C.cpp}
 
 OBJECTS = ${SOURCES:.cpp=.o}
 
@@ -32,7 +35,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 INC_PATH = ./inc/
 
 # ---------------------------------- Rules ----------------------------------- #
-NAME = serialize
+NAME = identify
 RM = rm -rf
 
 all: ${NAME}
