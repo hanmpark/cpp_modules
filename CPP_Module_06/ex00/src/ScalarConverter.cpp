@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:43:22 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/15 19:32:31 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/18 10:05:05 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,9 @@ void	ScalarConverter::convert(std::string const &literal) {
 		{&isDouble, &doublePrint}
 	};
 	for (size_t i = 0; i < 5; i++) {
-		if (dispatch[i].ftIs(literal) && i != 0) {
+		if (!i && dispatch[i].ftIs(literal)) {
+			return ;
+		} else if (dispatch[i].ftIs(literal)) {
 			return (dispatch[i].ftPrint(literal));
 		}
 	}
