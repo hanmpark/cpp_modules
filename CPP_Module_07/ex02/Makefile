@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 16:04:48 by hanmpark          #+#    #+#              #
-#    Updated: 2024/03/19 14:41:21 by hanmpark         ###   ########.fr        #
+#    Updated: 2024/03/19 18:07:17 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 INC_PATH = ./inc/
 
 # ---------------------------------- Rules ----------------------------------- #
-NAME = iter
+NAME = array
 RM = rm -rf
 
 all: ${NAME}
