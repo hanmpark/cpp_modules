@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 09:45:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/20 15:20:57 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/22 08:49:19 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # define PURPLE	"\033[38;5;99m"
 # define GREEN	"\033[38;5;115m"
+# define RED	"\033[38;5;196m"
 # define BOLD	"\033[1m"
 # define DEF	"\033[0m"
 
@@ -37,7 +38,7 @@ public:
 	Span	&operator=(Span const &rhs);
 
 	// Getter
-	std::vector<int>	*getVec();
+	std::vector<int> const	&getVec() const;
 
 	// Method
 	void			addNumber(unsigned int number);

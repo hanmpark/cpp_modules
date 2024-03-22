@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 09:49:49 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/20 15:38:39 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/22 08:43:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ Span	&Span::operator=(Span const &rhs) {
 }
 // Getter
 
-std::vector<int>	*Span::getVec() {
-	return &_vec;
+std::vector<int> const	&Span::getVec() const {
+	return _vec;
 }
 
 // Methods
@@ -94,8 +94,8 @@ char const	*Span::NoSpanException::what() const throw() {
 std::ostream	&operator<<(std::ostream &o, Span &sp) {
 	o << "-------------------------------------" << std::endl;
 	std::vector<int>::const_iterator	it;
-	for (it = sp.getVec()->begin(); it != sp.getVec()->end(); it++) {
-		o << *it << (it + 1 != sp.getVec()->end() ? " " : "");
+	for (it = sp.getVec().begin(); it != sp.getVec().end(); it++) {
+		o << *it << (it + 1 != sp.getVec().end() ? " " : "");
 	}
 	o << std::endl << "-------------------------------------";
 	return o;

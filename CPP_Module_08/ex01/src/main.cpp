@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 10:32:42 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/20 15:46:01 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/22 08:50:22 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,24 @@ int	main() {
 		std::cout << BOLD PURPLE "Test for multiple add:" DEF << std::endl;
 		std::cout << sp1 << std::endl << std::endl;
 	} catch (std::exception &e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cerr << RED BOLD "Error: " << e.what() << DEF << std::endl;
 	}
 	try {
 		std::cout << BOLD PURPLE "Test for OutOfBounds exception:" DEF << std::endl;
 		Span	sp2(0);
+		std::cout << GREEN "Trying to add an element..." DEF << std::endl;
 		sp2.addNumber(1);
 	} catch (std::exception &e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cerr << RED BOLD "Error: " << e.what() << DEF << std::endl;
 	}
 	std::cout << std::endl;
 	try {
 		std::cout << BOLD PURPLE "Test for exceptions:" DEF << std::endl;
 		Span	sp2(0);
+		std::cout << GREEN "Trying to find the longest span in an empty Span..." DEF<< std::endl;
 		std::cout << sp2.longestSpan() << std::endl;
 	} catch (std::exception &e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cerr << RED BOLD "Error: " << e.what() << DEF << std::endl;
 	}
 	return 0;
 }
