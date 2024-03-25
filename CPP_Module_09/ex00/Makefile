@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 16:04:48 by hanmpark          #+#    #+#              #
-#    Updated: 2024/03/23 10:04:00 by hanmpark         ###   ########.fr        #
+#    Updated: 2024/03/25 14:52:06 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ DEF = \033[0m
 # --------------------------------- Compiler --------------------------------- #
 SOURCES_PATH = ./src/
 SOURCES = ${addprefix ${SOURCES_PATH},	main.cpp \
-										BitcoinExchange.cpp}
+										BitcoinExchange.cpp \
+										exceptions.cpp \
+										getData.cpp}
 
 OBJECTS = ${SOURCES:.cpp=.o}
 
