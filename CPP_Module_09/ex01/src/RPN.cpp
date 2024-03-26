@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:04:55 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/26 15:10:52 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/26 15:24:28 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	RPN::calculate(string const &s) {
 			pushed = false;
 		}
 	}
-	if (_stack.size() == 1) {
+	if (_stack.size() == 1 && s.length() != 1) {
 		cout << _stack.top() << endl;
 	} else {
 		throw FormatException();
