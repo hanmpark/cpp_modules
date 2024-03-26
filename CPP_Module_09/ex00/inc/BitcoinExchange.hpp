@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:00:43 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/25 16:12:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:51:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,28 @@
 using std::string;
 using std::cout;
 using std::endl;
+using std::cerr;
+
+typedef enum e_type {
+	CSV,
+	TXT
+}	t_type;
 
 class BitcoinExchange {
 private:
-	std::map<string, string>	_map;
+	std::map<string, double>	_map;
 	string						_rawInput;
 	int							_year, _month, _day;
 
-	void	checkExtension(string const &filename, string const &extension);
+	void	checkExtension(string const &filename, string const &extension) const;
 	void	readFile(string const &filename);
-	void	checkCSV(string const &name, char const &limiter);
-	void	calculateResult(string const &name, std::map<string, string> const &db);
-	int		findDateInDB(std::map<string, string> const &db);
+	void	readDataBase(string const &name, char const &limiter);
+	double	findExchangeRate();
 
-	void	getDate(string const &date);
-	void	getValueCSV(string const &value);
-	void	getValueTXT(string const &value);
-	bool	checkLeapYear(int year);
+	string	getDate(string const &date);
+	double	getValue(string const &value, t_type type);
+	bool	checkLeapYear(int const &year);
+	bool	isPreviousDate(int const &year, int const &month, int const &day);
 
 public:
 	BitcoinExchange();
@@ -47,11 +52,8 @@ public:
 	~BitcoinExchange();
 	BitcoinExchange	&operator=(BitcoinExchange const &rhs);
 
-	void	readDB(string const &filename);
-	void	readInput(string const &filename, std::map<string, string> const &db);
-
-	// Getter
-	std::map<string, string> const	&getMap() const;
+	void	readInput(string const &filename);
+	void	printResult();
 
 	// Exceptions
 	class OpenFileException : public std::exception {
@@ -75,6 +77,10 @@ public:
 		virtual char const	*what() const throw();
 	};
 	class NonDigitException : public std::exception {
+	public:
+		virtual char const	*what() const throw();
+	};
+	class NoPreviousDateException : public std::exception {
 	public:
 		virtual char const	*what() const throw();
 	};

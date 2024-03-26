@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:50:22 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/25 14:50:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/26 11:45:26 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,8 @@ char const	*BitcoinExchange::TooLargeNumberException::what() const throw() {
 
 char const	*BitcoinExchange::NonDigitException::what() const throw() {
 	return "non digit character found.";
+}
+
+char const	*BitcoinExchange::NoPreviousDateException::what() const throw() {
+	return "no previous date in the .csv found.";
 }

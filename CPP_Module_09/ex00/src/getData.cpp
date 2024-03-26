@@ -6,17 +6,17 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:51:30 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/25 16:05:52 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:03:34 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-bool	BitcoinExchange::checkLeapYear(int year) {
+bool	BitcoinExchange::checkLeapYear(int const &year) {
 	return (!(year % 4) && year % 100) || !(year % 400);
 }
 
-void	BitcoinExchange::getDate(string const &date) {
+string	BitcoinExchange::getDate(string const &date) {
 	char				c;
 	std::istringstream	ss(date);
 
@@ -40,9 +40,10 @@ void	BitcoinExchange::getDate(string const &date) {
 	if (_day < 1 || _day > daysMonth) {
 		throw BadInputException();
 	}
+	return date;
 }
 
-void	BitcoinExchange::getValueCSV(string const &value) {
+double	BitcoinExchange::getValue(string const &value, t_type type) {
 	int	count = 0;
 
 	for (size_t i = 0; i < value.length(); i++) {
@@ -61,23 +62,10 @@ void	BitcoinExchange::getValueCSV(string const &value) {
 	std::istringstream	sv(value);
 	double				val;
 	sv >> val;
-	if (val < 0.0) {
+	if (type == CSV && val < 0.0) {
+		throw TooLargeNumberException();
+	} else if (type == TXT && (val < 1.0 || val > 999.0)) {
 		throw TooLargeNumberException();
 	}
-}
-
-void	BitcoinExchange::getValueTXT(string const &value) {
-	for (size_t i = 0; i < value.length(); i++) {
-		if (!i && value.at(i) == '-') {
-			throw NotPositiveNumberException();
-		} else if (std::isdigit(value.at(i)) == false) {
-			throw NonDigitException();
-		}
-	}
-	std::istringstream	sv(value);
-	double				val;
-	sv >> val;
-	if (val < 1.0 || val > 999.0) {
-		throw TooLargeNumberException();
-	}
+	return val;
 }
