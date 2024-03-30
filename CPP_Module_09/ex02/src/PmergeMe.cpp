@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 15:28:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 11:02:41 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 12:56:16 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,11 @@ void	PmergeMe::executeMergeInsertion() {
 	mergeInsertionSort(_vec);
 	end = clock();
 	_timeVec = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
-	clock_t startlst = clock();
+
+	start = clock();
 	mergeInsertionSort(_lst);
-	clock_t endlst = clock();
-	_timeLst = static_cast<double>(endlst - startlst) / CLOCKS_PER_SEC * 1000000;
+	end = clock();
+	_timeLst = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
 
 	cout << "After:   " << _lst << endl;
 	// cout << "After:   " << _vec << endl;

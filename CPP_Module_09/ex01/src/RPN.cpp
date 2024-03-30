@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:04:55 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 10:45:44 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 12:52:48 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,22 @@ RPN	&RPN::operator=(RPN const &rhs) {
 
 // private methods
 
-double	RPN::add(int a, int b) {
-	return static_cast<double>(a) + static_cast<double>(b);
+int	RPN::add(int a, int b) {
+	return a + b;
 }
 
-double	RPN::substract(int a, int b) {
-	return static_cast<double>(a) - static_cast<double>(b);
+int	RPN::substract(int a, int b) {
+	return a - b;
 }
 
-double	RPN::divide(int a, int b) {
-	return static_cast<double>(a) / static_cast<double>(b);
+int	RPN::divide(int a, int b) {
+	if (b == 0)
+		throw DivisionByZeroException();
+	return a / b;
 }
 
-double	RPN::multiply(int a, int b) {
-	return static_cast<double>(a) * static_cast<double>(b);
+int	RPN::multiply(int a, int b) {
+	return a * b;
 }
 
 bool	RPN::isOperator(char const &c) const {
@@ -77,21 +79,22 @@ void	RPN::chooseOperation(char const &operand) {
 
 void	RPN::calculate(string const &s) {
 	bool	pushed = false;
+	size_t	n = s.length();
 
-	for (size_t i = 0; i < s.length(); i++) {
-		if (!pushed && isdigit(s.at(i)) && s.at(i) != '0') {
+	for (size_t i = 0; i < n; i++) {
+		if (!pushed && isdigit(s.at(i))) {
 			pushed = true;
 			_stack.push(s.at(i) - '0');
 		} else if (!pushed && isOperator(s.at(i))) {
 			pushed = true;
 			chooseOperation(s.at(i));
-		} else if (!pushed || (pushed && s.at(i) != ' ') || (pushed && i + 1 == s.length())) {
+		} else if (!pushed || (pushed && s.at(i) != ' ') || (pushed && i + 1 == n)) {
 			throw FormatException();
 		} else {
 			pushed = false;
 		}
 	}
-	if (_stack.size() == 1 && s.length() != 1) {
+	if (_stack.size() == 1 && n != 1) {
 		cout << _stack.top() << endl;
 	} else {
 		throw FormatException();
@@ -106,4 +109,8 @@ char const	*RPN::NumberOperandsException::what() const throw() {
 
 char const	*RPN::FormatException::what() const throw() {
 	return "format error.";
+}
+
+char const	*RPN::DivisionByZeroException::what() const throw() {
+	return "Division by zero is impossible.";
 }
