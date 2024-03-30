@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:03:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 10:48:15 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 12:32:47 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange() : _rawInput(NULL), _year(0), _month(0), _day(0) {
+BitcoinExchange::BitcoinExchange() : _rawInput(""), _year(0), _month(0), _day(0) {
 	readFile("data.csv");
 	readDataBase("date,exchange_rate", ',');
 }
@@ -104,7 +104,6 @@ double	BitcoinExchange::findExchangeRate() {
 
 void	BitcoinExchange::readInput(string const &filename) {
 	readFile(filename);
-	checkExtension(filename, ".txt");
 
 	std::istringstream	iss(_rawInput);
 	string				line;

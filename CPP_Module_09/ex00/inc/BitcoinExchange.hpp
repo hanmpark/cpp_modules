@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:00:43 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 10:47:12 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 12:33:13 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,10 @@ public:
 		virtual char const	*what() const throw();
 	};
 	class TooLargeNumberException : public std::exception {
+	public:
+		virtual char const	*what() const throw();
+	};
+	class TooSmallNumberException : public std::exception {
 	public:
 		virtual char const	*what() const throw();
 	};
