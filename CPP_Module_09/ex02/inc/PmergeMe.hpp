@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 15:26:13 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 01:29:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 10:44:57 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 # define PMERGEME_HPP
 
 # include <iostream>
+# include <algorithm>
 # include <list>
 # include <vector>
 # include <cctype>
-# include <algorithm>
 # include <limits>
 
 using std::cout;
-using std::endl;
 using std::cerr;
+using std::endl;
 using std::string;
 using std::vector;
 using std::list;

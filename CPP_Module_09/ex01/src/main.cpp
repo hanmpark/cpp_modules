@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:45:42 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/26 15:06:09 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 10:37:45 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char **argv) {
 		cerr << "Error: wrong number of arguments." << endl;
 		return 1;
 	}
+
 	RPN	rpn;
 
 	try {
@@ -25,5 +26,6 @@ int	main(int argc, char **argv) {
 		cerr << "Error: " << e.what() << endl;
 		return 1;
 	}
+
 	return 0;
 }

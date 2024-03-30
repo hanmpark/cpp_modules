@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:51:30 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 01:38:57 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 10:36:37 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ string	BitcoinExchange::getDate(string const &date) {
 	std::istringstream	ss(date);
 
 	ss >> _year >> c >> _month >> c >> _day;
-	if (date.find('-') == date.rfind('-') || ss.fail() || ss.get() != EOF || !(_year > 999 && _year < 10000)) {
+	if (date.find('-') == date.rfind('-') || ss.fail() || ss.get() != EOF || !(_year > 999 && _year < 10000))
 		throw BadInputException();
-	}
-	if (_month < 1 || _month > 12) {
+
+	if (_month < 1 || _month > 12)
 		throw BadInputException();
-	}
+
 	int	daysMonth = 31;
+
 	if (_month == 4 || _month == 6 || _month == 9 || _month == 11) {
 		daysMonth = 30;
 	} else if (_month == 2) {
@@ -40,6 +41,7 @@ string	BitcoinExchange::getDate(string const &date) {
 	if (_day < 1 || _day > daysMonth) {
 		throw BadInputException();
 	}
+
 	return date;
 }
 
@@ -55,9 +57,8 @@ double	BitcoinExchange::getValue(string const &value, t_type type) {
 			count++;
 		}
 	}
-	if (count > 1) {
+	if (count > 1)
 		throw FormatException();
-	}
 
 	std::istringstream	sv(value);
 	double				val;
@@ -69,5 +70,6 @@ double	BitcoinExchange::getValue(string const &value, t_type type) {
 	} else if (type == TXT && (val < 1.0 || val > 999.0)) {
 		throw TooLargeNumberException();
 	}
+
 	return val;
 }

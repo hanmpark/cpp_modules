@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 15:28:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 01:34:04 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 11:02:41 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ PmergeMe::~PmergeMe() {}
 
 PmergeMe	&PmergeMe::operator=(PmergeMe const &rhs) {
 	if (this != &rhs) {
+		_timeVec = rhs._timeVec;
+		_timeLst = rhs._timeLst;
 		_vec = rhs._vec;
 		_lst = rhs._lst;
 	}
 	return *this;
 }
 
-PmergeMe::PmergeMe(int const &argc, char **argv) {
+PmergeMe::PmergeMe(int const &argc, char **argv) : _timeVec(0.0), _timeLst(0.0) {
 	for (int i = 1; i < argc; i++) {
 		isUnsignedInteger(static_cast<string>(argv[i]));
 		_vec.push_back(static_cast<unsigned int>(strtoul(argv[i], NULL, 10)));
@@ -49,9 +51,9 @@ void	PmergeMe::checkDuplicate(vector<unsigned int> nums) {
 }
 
 void	PmergeMe::isUnsignedInteger(const string str) {
-	if (str.empty() || str.length() > 10) {
+	if (str.empty() || str.length() > 10)
 		throw NotUnsignedIntegerException();
-	}
+
 	for (std::string::const_iterator it = str.begin(); it != str.end(); it++) {
 		if (it == str.begin() && (*it == '0' || (!isdigit(*it) && *it == '+'))) {
 			throw NotUnsignedIntegerException();
@@ -59,10 +61,11 @@ void	PmergeMe::isUnsignedInteger(const string str) {
 			throw NotUnsignedIntegerException();
 		}
 	}
+
 	unsigned long long	value = strtoull(str.c_str(), NULL, 10);
-	if (value > static_cast<unsigned long long>(std::numeric_limits<unsigned int>::max())) {
+
+	if (value > static_cast<unsigned long long>(std::numeric_limits<unsigned int>::max()))
 		throw NotUnsignedIntegerException();
-	}
 }
 
 // Public methods
@@ -75,11 +78,13 @@ void	PmergeMe::executeMergeInsertion() {
 	mergeInsertionSort(_vec);
 	end = clock();
 	_timeVec = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
-	start = clock();
+	clock_t startlst = clock();
 	mergeInsertionSort(_lst);
-	end = clock();
-	_timeLst = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
+	clock_t endlst = clock();
+	_timeLst = static_cast<double>(endlst - startlst) / CLOCKS_PER_SEC * 1000000;
+
 	cout << "After:   " << _lst << endl;
+	// cout << "After:   " << _vec << endl;
 	cout << "Time to process a range of " << _vec.size() << " elements with std::vector<unsigned int> : " << _timeVec << " us" << endl;
 	cout << "Time to process a range of " << _lst.size() << " elements with std::list<unsigned int>   : " << _timeLst << " us" << endl;
 }
@@ -100,6 +105,7 @@ std::ostream	&operator<<(std::ostream &o, vector<unsigned int> &vec) {
 	for (it = vec.begin(); it != vec.end(); it++) {
 		cout << *it << (it + 1 != vec.end() ? " " : "");
 	}
+
 	return o;
 }
 
@@ -109,5 +115,6 @@ std::ostream	&operator<<(std::ostream &o, list<unsigned int> &lst) {
 	for (it = lst.begin(); it != lst.end(); it++) {
 		cout << *it << " ";
 	}
+
 	return o;
 }

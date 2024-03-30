@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:04:55 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/26 15:24:28 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 10:45:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ RPN::RPN(RPN const &copy) {
 RPN::~RPN() {}
 
 RPN	&RPN::operator=(RPN const &rhs) {
-	if (this != &rhs) {
+	if (this != &rhs)
 		_stack = rhs._stack;
-	}
+
 	return *this;
 }
 
@@ -79,7 +79,7 @@ void	RPN::calculate(string const &s) {
 	bool	pushed = false;
 
 	for (size_t i = 0; i < s.length(); i++) {
-		if (!pushed && std::isdigit(s.at(i)) && s.at(i) != '0') {
+		if (!pushed && isdigit(s.at(i)) && s.at(i) != '0') {
 			pushed = true;
 			_stack.push(s.at(i) - '0');
 		} else if (!pushed && isOperator(s.at(i))) {

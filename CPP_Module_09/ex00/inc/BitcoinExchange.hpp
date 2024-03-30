@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:00:43 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/26 12:51:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 10:47:12 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
-# include <map>
 # include <algorithm>
+# include <map>
 # include <fstream>
 # include <sstream>
 # include <cctype>
 
-using std::string;
 using std::cout;
-using std::endl;
 using std::cerr;
+using std::endl;
+using std::string;
+using std::map;
 
 typedef enum e_type {
 	CSV,
@@ -32,9 +33,11 @@ typedef enum e_type {
 
 class BitcoinExchange {
 private:
-	std::map<string, double>	_map;
-	string						_rawInput;
-	int							_year, _month, _day;
+	map<string, double>	_map;
+	string				_rawInput;
+	int					_year, _month, _day;
+
+	// Private methods
 
 	void	checkExtension(string const &filename, string const &extension) const;
 	void	readFile(string const &filename);
@@ -47,15 +50,18 @@ private:
 	bool	isPreviousDate(int const &year, int const &month, int const &day);
 
 public:
-	BitcoinExchange();
-	BitcoinExchange(BitcoinExchange const &copy);
-	~BitcoinExchange();
-	BitcoinExchange	&operator=(BitcoinExchange const &rhs);
+	BitcoinExchange();										// canonical form
+	BitcoinExchange(BitcoinExchange const &copy);			// canonical form
+	~BitcoinExchange();										// canonical form
+	BitcoinExchange	&operator=(BitcoinExchange const &rhs);	// canonical form
+
+	// Public methods
 
 	void	readInput(string const &filename);
 	void	printResult();
 
 	// Exceptions
+
 	class OpenFileException : public std::exception {
 	public:
 		virtual char const	*what() const throw();

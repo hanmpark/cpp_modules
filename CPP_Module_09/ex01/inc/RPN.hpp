@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:03:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/26 15:08:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 10:45:16 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@
 # define NB_OP 4
 
 using std::cout;
-using std::endl;
 using std::cerr;
+using std::endl;
 using std::string;
+using std::stack;
 
 class RPN {
 private:
-	std::stack<int>	_stack;
+	stack<int>	_stack;
+
+	// Private methods
 
 	bool	isOperator(char const &c) const;
 	void	chooseOperation(char const &operand);
@@ -42,12 +45,12 @@ private:
 	}	t_op;
 
 public:
-	RPN();
-	RPN(RPN const &copy);
-	~RPN();
-	RPN	&operator=(RPN const &rhs);
+	RPN();							// canonical form
+	RPN(RPN const &copy);			// canonical form
+	~RPN();							// canonical form
+	RPN	&operator=(RPN const &rhs);	// canonical form
 
-	// Method
+	// Public method
 
 	void	calculate(string const &s);
 
