@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 14:51:30 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/26 12:03:34 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/03/30 01:38:57 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ double	BitcoinExchange::getValue(string const &value, t_type type) {
 	std::istringstream	sv(value);
 	double				val;
 	sv >> val;
-	if (type == CSV && val < 0.0) {
+	if (sv.fail()) {
+		throw FormatException();
+	} else if (type == CSV && val < 0.0) {
 		throw TooLargeNumberException();
 	} else if (type == TXT && (val < 1.0 || val > 999.0)) {
 		throw TooLargeNumberException();
