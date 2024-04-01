@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 15:26:13 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/04/01 01:14:28 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:25:39 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ using std::list;
 
 class PmergeMe {
 private:
-	static const int		_threshold = 15;
 	double					_timeVec;
 	double					_timeLst;
 	vector<unsigned int>	_vec;

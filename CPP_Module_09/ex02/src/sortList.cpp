@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 21:59:42 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/04/01 02:54:58 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:25:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,25 @@
 void PmergeMe::insertionSortPairs(list<list<unsigned int> > &pairs) {
 	list<list<unsigned int> >::iterator	i, j, tmp;
 	list<unsigned int>					key;
-	bool								pass;
 
 	for (i = pairs.begin(); i != pairs.end(); i++) {
 		if (i == pairs.begin())
 			continue;
-		pass = false;
 		key = *i;
 		j = i;
 		j--;
 		while (j->back() > key.back()) {
-			pass = true;
 			tmp = j;
-			*++j = *tmp;
-			if (tmp == pairs.begin()) {
-				j--;
+			*++tmp = *j;
+			if (j == pairs.begin()) {
+				*j = key;
 				break;
 			}
-			j = --tmp;
-		}
-		if (!pass) {
-			*++j = key;
-		} else {
-			*j = key;
+			j--;
+			if (j->back() < key.back()) {
+				*++j = key;
+				break;
+			}
 		}
 	}
 }
@@ -74,10 +70,10 @@ list<size_t>	PmergeMe::buildJacobSthalSequenceList(size_t size) {
 	return sequence;
 }
 
-list<unsigned int> PmergeMe::create_s(list<list<unsigned int> > const &lists) {
+list<unsigned int> PmergeMe::create_s(list<list<unsigned int> > const &pairs) {
 	list<unsigned int> s, pend;
 
-	for (list<list<unsigned int> >::const_iterator it = lists.begin(); it != lists.end(); it++) {
+	for (list<list<unsigned int> >::const_iterator it = pairs.begin(); it != pairs.end(); it++) {
 		pend.push_back(it->front());
 		s.push_back(it->back());
 	}
