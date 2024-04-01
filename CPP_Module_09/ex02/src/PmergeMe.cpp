@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 15:28:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 12:56:16 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/01 01:53:34 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ PmergeMe::PmergeMe(int const &argc, char **argv) : _timeVec(0.0), _timeLst(0.0) 
 }
 
 // Private methods
+
+size_t	PmergeMe::jacobsthalNumbers(size_t n) {
+	if (n == 0) {
+		return 0;
+	} else if (n == 1) {
+		return 1;
+	}
+	return jacobsthalNumbers(n - 1) + 2 * jacobsthalNumbers(n - 2);
+}
 
 void	PmergeMe::checkDuplicate(vector<unsigned int> nums) {
 	std::sort(nums.begin(), nums.end());
@@ -75,17 +84,17 @@ void	PmergeMe::executeMergeInsertion() {
 
 	cout << "Before:  " << _vec << endl;
 	start = clock();
-	mergeInsertionSort(_vec);
+	fordJohnson(_vec);
 	end = clock();
 	_timeVec = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
 
 	start = clock();
-	mergeInsertionSort(_lst);
+	fordJohnson(_lst);
 	end = clock();
 	_timeLst = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
 
-	cout << "After:   " << _lst << endl;
-	// cout << "After:   " << _vec << endl;
+	cout << "After :  " << _lst << endl;
+	// cout << "After :  " << _vec << endl;
 	cout << "Time to process a range of " << _vec.size() << " elements with std::vector<unsigned int> : " << _timeVec << " us" << endl;
 	cout << "Time to process a range of " << _lst.size() << " elements with std::list<unsigned int>   : " << _timeLst << " us" << endl;
 }

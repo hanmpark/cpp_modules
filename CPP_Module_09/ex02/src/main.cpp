@@ -6,14 +6,14 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 15:54:23 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 01:13:28 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/01 00:58:15 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 int	main(int argc, char **argv) {
-	if (argc < 2) {
+	if (argc < 3) {
 		cerr << "Error: wrong number of arguments." << endl;
 		return 1;
 	}

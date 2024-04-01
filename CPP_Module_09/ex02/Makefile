@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 16:04:48 by hanmpark          #+#    #+#              #
-#    Updated: 2024/03/30 00:49:09 by hanmpark         ###   ########.fr        #
+#    Updated: 2024/03/31 22:54:12 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ OBJECTS = ${SOURCES:.cpp=.o}
 	@${CC} ${CFLAGS} -I ${INC_PATH} -c $< -o $@
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 INC_PATH = ./inc/
 
 # ---------------------------------- Rules ----------------------------------- #

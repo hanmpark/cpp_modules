@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 15:26:13 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 12:39:17 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/01 01:14:28 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,20 @@ private:
 	void	isUnsignedInteger(const string str);
 	void	checkDuplicate(vector<unsigned int> nums);
 
-	void	insertionSort(vector<unsigned int> &nums);
-	void	mergeInsertionSort(vector<unsigned int> &nums);
+	size_t							jacobsthalNumbers(size_t n);
+	vector<size_t>					buildJacobSthalSequenceVector(size_t size);
+	list<size_t>					buildJacobSthalSequenceList(size_t size);
+
+	void							insertionSortPairs(vector<vector<unsigned int> > &pairs, size_t n);
+	vector<vector<unsigned int> >	createPairs(vector<unsigned int> const &nums, size_t n);
+	vector<unsigned int>			create_s(vector<vector<unsigned int> > const &pairs);
+	void							fordJohnson(vector<unsigned int> &nums);
+
+	void							insertionSortPairs(list<list<unsigned int> > &pairs);
+	list<list<unsigned int> >		createPairs(list<unsigned int> const &nums, size_t n);
+	list<unsigned int>				create_s(list<list<unsigned int> > const &pairs);
+	void							fordJohnson(list<unsigned int> &nums);
+
 	void	insertionSort(list<unsigned int> &nums);
 	void	mergeInsertionSort(list<unsigned int> &nums);
 
