@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:03:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/04/01 17:33:36 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/02 07:59:36 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ double	BitcoinExchange::findExchangeRate() {
 		if (isPreviousDate(year, month, day) == true) {
 			exchangeRate = it->second;
 		} else {
-			break ;
+			break;
 		}
 	}
 
