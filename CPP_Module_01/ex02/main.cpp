@@ -6,17 +6,16 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 23:14:44 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:08:04 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/30 22:11:16 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int main(void) {
-
-	std::string stringBrain = "HI THIS IS BRAIN";
-	std::string *stringPTR = &stringBrain;
-	std::string &stringREF = stringBrain;
+int	main() {
+	std::string	stringBrain = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &stringBrain;
+	std::string	&stringREF = stringBrain;
 
 	/* Address of string */
 	std::cout << "Address of string in memory: " << &stringBrain << std::endl;

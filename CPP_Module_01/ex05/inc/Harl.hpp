@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:54:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:10:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/30 22:22:23 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,25 @@
 # define DEF "\033[0m"
 
 class Harl {
+public:
+	Harl();
+	~Harl();
 
-	public:
-		Harl(void);
-		~Harl(void);
+	void	complain(std::string level);
 
-		void complain(std::string level);
+private:
+	typedef void	(Harl::*harl_function_t)();
 
-	private:
-		typedef void (Harl::*harl_function_t)(void);
+	struct Level {
 
-		struct Level {
+		harl_function_t complainLevel;
+		std::string level;
+	};
 
-			harl_function_t complainLevel;
-			std::string level;
-		};
-
-		void debug(void);
-		void info(void);
-		void warning(void);
-		void error(void);
+	void	debug();
+	void	info();
+	void	warning();
+	void	error();
 };
 
 #endif

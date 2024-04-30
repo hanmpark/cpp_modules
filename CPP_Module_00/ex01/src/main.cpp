@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:00:56 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/30 21:38:05 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 #include <cstdlib>
 
-int main( void ) {
-
-	PhoneBook phonebook;
+int	main() {
+	PhoneBook	phonebook;
 
 	while (1) {
 		std::string command;

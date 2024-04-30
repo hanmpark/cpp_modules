@@ -6,20 +6,19 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 00:57:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:10:13 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/30 22:19:09 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 
-#define RED "\033[38;5;204m"
-#define GREEN "\033[38;5;80m"
-#define DEF "\033[0m"
+#define RED		"\033[38;5;204m"
+#define GREEN	"\033[38;5;80m"
+#define DEF		"\033[0m"
 
 static bool getContent(std::string const fileName, std::string &content, std::string const occurrence, std::string const replace) {
-
-	std::ifstream ifs;
+	std::ifstream	ifs;
 	ifs.open(fileName, std::ifstream::in);
 	if (!ifs.is_open()) {
 		return false;
@@ -28,7 +27,7 @@ static bool getContent(std::string const fileName, std::string &content, std::st
 	std::getline(ifs, content, '\0');
 	ifs.close();
 
-	size_t pos;
+	size_t	pos;
 	int countOccurrence = 0;
 	while ((pos = content.find(occurrence)) != std::string::npos) {
 		content.erase(pos, occurrence.size());
@@ -47,7 +46,6 @@ static bool getContent(std::string const fileName, std::string &content, std::st
 }
 
 int	main(int argc, char **argv) {
-
 	if (argc != 4) {
 		std::cerr << RED "Error: Wrong number of arguments" DEF << std::endl;
 		return 1;

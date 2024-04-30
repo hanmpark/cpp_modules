@@ -6,14 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:54:17 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:14:53 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/30 22:25:28 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int	main(void) {
-
+int	main() {
 	Fixed a;
 	Fixed const b(10);
 	Fixed const c(42.42f);

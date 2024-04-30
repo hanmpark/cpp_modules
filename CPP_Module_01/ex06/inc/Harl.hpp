@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:54:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:11:44 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/30 22:22:00 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,21 @@
 # define WARNING "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month."
 # define ERROR "This is unacceptable ! I want to speak to the manager now."
 
-# define RED "\033[38;5;204m"
-# define GREEN "\033[38;5;80m"
-# define BLUE "\033[38;5;32m"
-# define YELLOW "\033[38;5;184m"
-# define DEF "\033[0m"
+# define RED	"\033[38;5;204m"
+# define GREEN	"\033[38;5;80m"
+# define BLUE	"\033[38;5;32m"
+# define YELLOW	"\033[38;5;184m"
+# define DEF	"\033[0m"
 
 class Harl {
+public:
+	void	complain(std::string level);
 
-	public:
-		void complain(std::string level);
-
-	private:
-		void debug(void);
-		void info(void);
-		void warning(void);
-		void error(void);
+private:
+	void	debug();
+	void	info();
+	void	warning();
+	void	error();
 };
 
 #endif

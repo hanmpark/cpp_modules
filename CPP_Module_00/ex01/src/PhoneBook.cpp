@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:20:12 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:03:14 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/30 21:38:39 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ PhoneBook::PhoneBook(void) : _count(0), _trackOldestContact(0) {}
 
 PhoneBook::~PhoneBook(void) {}
 
-static bool is_alpha(std::string str) {
-
+static bool	is_alpha(std::string str) {
 	for (size_t i = 0; i < str.size(); i++) {
 		if (!((str.at(i) >= 'a' && str.at(i) <= 'z') || (str.at(i) >= 'A' && str.at(i) <= 'Z'))) {
 			return false;
@@ -29,8 +28,7 @@ static bool is_alpha(std::string str) {
 	return true;
 }
 
-static bool is_num(std::string str) {
-
+static bool	is_num(std::string str) {
 	for (size_t i = 0; i < str.size(); i++) {
 		if (!(str.at(i) >= '0' && str.at(i) <= '9')) {
 			return false;
@@ -39,8 +37,7 @@ static bool is_num(std::string str) {
 	return true;
 }
 
-static void setContactInformation(Contact &newContact, std::string *infoType) {
-
+static void	setContactInformation(Contact &newContact, std::string *infoType) {
 	std::cout << BLUE "Adding new contact, please enter the following information:" DEF << std::endl;
 
 	for (int i = 0; infoType[i].length(); i++) {
@@ -82,8 +79,7 @@ static void setContactInformation(Contact &newContact, std::string *infoType) {
 	std::cout << std::endl;
 }
 
-void PhoneBook::addContact(void) {
-
+void	PhoneBook::addContact(void) {
 	Contact newContact;
 	std::string infoType[] = {
 		"First name: ",
@@ -106,8 +102,7 @@ void PhoneBook::addContact(void) {
 	}
 }
 
-static void putTableSeparator(void) {
-
+static void	putTableSeparator(void) {
 	for (int i = 0; i < 4; i++) {
 		std::cout << "-----------";
 	}
@@ -115,8 +110,7 @@ static void putTableSeparator(void) {
 	std::cout << std::endl;
 }
 
-static void putIndexInfo(std::string info) {
-
+static void	putIndexInfo(std::string info) {
 	std::cout << "|";
 	if (info.empty()) {
 		std::cout << std::setw(10) << "";
@@ -130,8 +124,7 @@ static void putIndexInfo(std::string info) {
 	}
 }
 
-void PhoneBook::putChosenContactInfo(int chosenIndex) const {
-
+void	PhoneBook::putChosenContactInfo(int chosenIndex) const {
 	std::cout << GREEN "Chosen contact's information" DEF << std::endl;
 	putTableSeparator();
 	std::cout << "First name: " << _contacts[chosenIndex].getFirstName() << std::endl;
@@ -143,8 +136,7 @@ void PhoneBook::putChosenContactInfo(int chosenIndex) const {
 	std::cout << std::endl;
 }
 
-void PhoneBook::showRegisteredContact(void) const {
-
+void	PhoneBook::showRegisteredContact(void) const {
 	std::cout << GREEN "Registered contact(s)" DEF << std::endl;
 	for (int i = 0; i <= _count - 1; i++) {
 		putTableSeparator();
@@ -158,8 +150,7 @@ void PhoneBook::showRegisteredContact(void) const {
 	std::cout << std::endl;
 }
 
-static int stringToInt(std::string &str) {
-
+static int	stringToInt(std::string &str) {
 	for (size_t i = 0; i < str.size(); i++) {
 		if (!std::isdigit(str.at(i))) {
 			return -1;
@@ -172,8 +163,7 @@ static int stringToInt(std::string &str) {
 	return i;
 }
 
-void PhoneBook::searchContact(void) const {
-
+void	PhoneBook::searchContact(void) const {
 	if (_count == 0) {
 		std::cout << RED "No registered contact found" DEF << std::endl;
 		return;

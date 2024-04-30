@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 09:13:16 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:18:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/04/30 22:30:09 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 // Using Gauss' formula to calculate the area of a given polygon, in this case a triangle
 static float getArea(Point const a, Point const b, Point const c) {
-
 	float const sumArea = (a.getX().toFloat() * (b.getY().toFloat() - c.getY().toFloat())) \
 		+ (b.getX().toFloat() * (c.getY().toFloat() - a.getY().toFloat())) \
 		+ (c.getX().toFloat() * (a.getY().toFloat() - b.getY().toFloat()));
@@ -28,7 +27,6 @@ static float getArea(Point const a, Point const b, Point const c) {
 * we loose some precision and it could false the result
 */
 bool bsp(Point const a, Point const b, Point const c, Point const point) {
-
 	float A_abc = getArea(a, b, c);
 	float A_dbc = getArea(point, b, c);
 	float A_dca = getArea(point, c, a);
