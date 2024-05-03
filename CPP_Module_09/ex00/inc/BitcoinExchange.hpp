@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 10:00:43 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 12:39:13 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 03:03:56 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ private:
 	bool	isPreviousDate(int const &year, int const &month, int const &day);
 
 public:
-	BitcoinExchange();										// canonical form
-	BitcoinExchange(BitcoinExchange const &copy);			// canonical form
-	~BitcoinExchange();										// canonical form
-	BitcoinExchange	&operator=(BitcoinExchange const &rhs);	// canonical form
+	BitcoinExchange();
+	BitcoinExchange(BitcoinExchange const &copy);
+	~BitcoinExchange();
+	BitcoinExchange	&operator=(BitcoinExchange const &rhs);
 
 	// Public methods
 

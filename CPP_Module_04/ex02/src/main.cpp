@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:31:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 19:18:06 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:48:56 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 #include "WrongCat.hpp"
 
 static void putSeparator() {
-
 	std::cout << std::endl;
 	std::cout << "------------------------------------------------------------" << std::endl;
 	std::cout << std::endl;
 }
 
 static void Animals() {
-
-	const AAnimal* j = new Dog();
-	const AAnimal* i = new Cat();
+	const AAnimal*	j = new Dog();
+	const AAnimal*	i = new Cat();
 
 	std::cout << std::endl;
 	std::cout << "j is a " << j->getType() << std::endl;
@@ -41,9 +39,8 @@ static void Animals() {
 }
 
 static void WrongAnimals() {
-
-	const WrongAnimal* wrongAnimal = new WrongAnimal();
-	const WrongAnimal* wrongCat = new WrongCat();
+	const WrongAnimal*	wrongAnimal = new WrongAnimal();
+	const WrongAnimal*	wrongCat = new WrongCat();
 
 	std::cout << std::endl;
 	std::cout << "meta is a " << wrongAnimal->getType() << std::endl;
@@ -60,21 +57,20 @@ static void WrongAnimals() {
 }
 
 int main() {
-
 	Animals();
 	putSeparator();
 	WrongAnimals();
 
 	std::cout << std::endl;
 
-	const AAnimal* j = new Dog();
-	const AAnimal* i = new Cat();
+	const AAnimal*	j = new Dog();
+	const AAnimal*	i = new Cat();
 
 	delete j; // should not create a leak
 	delete i;
 
 	std::cout << std::endl;
-	AAnimal* animals[4] = {new Dog(), new Cat(), new Dog(), new Cat()};
+	AAnimal*	animals[4] = {new Dog(), new Cat(), new Dog(), new Cat()};
 
 	for (int i = 0; i < 4; i++) {
 		animals[i]->makeSound();
@@ -91,6 +87,5 @@ int main() {
 		copy.telepathy(3);
 	}
 	std::cout << std::endl;
-
 	return 0;
 }

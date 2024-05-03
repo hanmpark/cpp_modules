@@ -6,24 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:46:44 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/14 11:17:18 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:53:15 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-/**
- * Orthodox canonical form:
- * - Default constructor
- * - Copy constructor
- * - Destructor
- * - Copy assignment operator
- */
-
-Form::Form(Form const &copy) :	_name(copy._name), \
-								_signed(copy._signed), \
-								_gradeToSign(copy._gradeToSign), \
-								_gradeToExecute(copy._gradeToExecute) {}
+Form::Form(Form const &copy) : _name(copy._name), _signed(copy._signed), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute) {}
 
 Form::~Form() {}
 
@@ -33,20 +22,12 @@ Form	&Form::operator=(Form const &rhs) {
 	return *this;
 }
 
-// End of the canonical form
-
-Form::Form(std::string const &name, int gradeToSign) :	_name(name), \
-														_signed(false), \
-														_gradeToSign(gradeToSign), \
-														_gradeToExecute(0)
-{
+Form::Form(std::string const &name, int gradeToSign) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(0) {
 	if (_gradeToSign < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (_gradeToSign > 150)
 		throw Bureaucrat::GradeTooLowException();
 }
-
-// Getters ---------------------------------
 
 std::string const	Form::getName() const {
 	return _name;
@@ -64,8 +45,6 @@ int	Form::getGradeToExecute() const {
 	return _gradeToExecute;
 }
 
-// -----------------------------------------
-
 std::ostream	&operator<<(std::ostream &o, Form const &rhs) {
 	o << "[Form " << rhs.getName() << " info]" << std::endl;
 	o << "Form grade is signed: " << (rhs.getSigned() == true ? "true" : "false") << std::endl;
@@ -74,20 +53,12 @@ std::ostream	&operator<<(std::ostream &o, Form const &rhs) {
 	return o;
 }
 
-// Method
-
 void	Form::beSigned(Bureaucrat const &bureaucrat) {
 	if (bureaucrat.getGrade() > _gradeToSign)
 		throw Form::GradeTooLowException();
 	_signed = true;
 }
 
-// Exceptions
+char const	*Form::GradeTooHighException::what() const throw() { return "Grade is too high"; }
 
-char const	*Form::GradeTooHighException::what() const throw() {
-	return "Grade is too high";
-}
-
-char const	*Form::GradeTooLowException::what() const throw() {
-	return "Grade is too Low";
-}
+char const	*Form::GradeTooLowException::what() const throw() { return "Grade is too Low"; }

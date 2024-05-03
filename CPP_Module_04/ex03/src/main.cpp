@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 12:50:07 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 16:45:22 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:49:13 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 
-int main() {
-
+int	main() {
 	IMateriaSource *src = new MateriaSource();
 
 	std::cout << std::endl;
@@ -24,10 +23,10 @@ int main() {
 	src->learnMateria(new Cure());
 
 	std::cout << std::endl;
-	ICharacter *me = new Character("me");
+	ICharacter	*me = new Character("me");
 
 	std::cout << std::endl;
-	AMateria *tmp;
+	AMateria	*tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
@@ -42,7 +41,7 @@ int main() {
 	me->checkground();
 
 	std::cout << std::endl;
-	ICharacter *bob = new Character("bob");
+	ICharacter	*bob = new Character("bob");
 
 	me->use(0, *bob);
 	me->use(1, *bob);
@@ -51,6 +50,5 @@ int main() {
 	delete bob;
 	delete me;
 	delete src;
-
 	return 0;
 }

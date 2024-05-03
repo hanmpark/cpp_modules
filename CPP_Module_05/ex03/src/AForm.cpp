@@ -6,24 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:46:44 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/14 11:23:00 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:58:41 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-/**
- * Orthodox canonical form:
- * - Default constructor
- * - Copy constructor
- * - Destructor
- * - Copy assignment operator
- */
-
-AForm::AForm(AForm const &copy) :	_name(copy._name), \
-									_signed(copy._signed), \
-									_gradeToSign(copy._gradeToSign), \
-									_gradeToExecute(copy._gradeToExecute) {}
+AForm::AForm(AForm const &copy) : _name(copy._name), _signed(copy._signed), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute) {}
 
 AForm::~AForm() {}
 
@@ -33,38 +22,20 @@ AForm	&AForm::operator=(AForm const &rhs) {
 	return *this;
 }
 
-// End of the canonical form
-
-AForm::AForm(std::string const &name, int gradeToSign, int gradeToExecute) :	_name(name), \
-																				_signed(false), \
-																				_gradeToSign(gradeToSign), \
-																				_gradeToExecute(gradeToExecute)
-{
+AForm::AForm(std::string const &name, int gradeToSign, int gradeToExecute) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
 	if (_gradeToSign < 1 || _gradeToExecute < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (_gradeToSign > 150 || _gradeToExecute > 150)
 		throw Bureaucrat::GradeTooLowException();
 }
 
-// Getters ---------------------------------
+std::string	AForm::getName() const { return _name; }
 
-std::string	AForm::getName() const {
-	return _name;
-}
+bool	AForm::getSigned() const { return _signed; }
 
-bool	AForm::getSigned() const {
-	return _signed;
-}
+int	AForm::getGradeToSign() const { return _gradeToSign; }
 
-int	AForm::getGradeToSign() const {
-	return _gradeToSign;
-}
-
-int	AForm::getGradeToExecute() const {
-	return _gradeToExecute;
-}
-
-// -----------------------------------------
+int	AForm::getGradeToExecute() const { return _gradeToExecute; }
 
 std::ostream	&operator<<(std::ostream &o, AForm const &rhs) {
 	o << "[AForm " << rhs.getName() << " info]" << std::endl;
@@ -74,24 +45,14 @@ std::ostream	&operator<<(std::ostream &o, AForm const &rhs) {
 	return o;
 }
 
-// Method
-
 void	AForm::beSigned(Bureaucrat const &bureaucrat) {
 	if (bureaucrat.getGrade() > _gradeToSign)
 		throw AForm::GradeTooLowException();
 	_signed = true;
 }
 
-// Exceptions
+char const	*AForm::GradeTooHighException::what() const throw() { return "Grade is too high"; }
 
-char const	*AForm::GradeTooHighException::what() const throw() {
-	return "Grade is too high";
-}
+char const	*AForm::GradeTooLowException::what() const throw() { return "Grade is too low"; }
 
-char const	*AForm::GradeTooLowException::what() const throw() {
-	return "Grade is too low";
-}
-
-char const	*AForm::FormUnsignedException::what() const throw() {
-	return "Form is unsigned";
-}
+char const	*AForm::FormUnsignedException::what() const throw() { return "Form is unsigned"; }

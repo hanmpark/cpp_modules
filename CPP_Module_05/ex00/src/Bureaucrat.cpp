@@ -6,25 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:29:40 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/14 11:16:46 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:51:14 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-/**
- * Orthodox canonical form:
- * - Default constructor
- * - Copy constructor
- * - Destructor
- * - Copy assignment operator
- */
+Bureaucrat::Bureaucrat() : _name("Some bureaucrat"), _grade(150) {}
 
-Bureaucrat::Bureaucrat() :	_name("Some bureaucrat"), \
-							_grade(150) {}
-
-Bureaucrat::Bureaucrat(Bureaucrat const &copy) :	_name(copy._name), \
-													_grade(copy._grade) {}
+Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy._grade) {}
 
 Bureaucrat::~Bureaucrat() {}
 
@@ -34,30 +24,16 @@ Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &rhs) {
 	return *this;
 }
 
-// End of the canonical form
-
-Bureaucrat::Bureaucrat(std::string const &name, int grade) :	_name(name), \
-																_grade(grade)
-{
+Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade(grade) {
 	if (_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 }
 
-// Getters ---------------------------------
+std::string const	Bureaucrat::getName() const { return _name; }
 
-std::string const	Bureaucrat::getName() const {
-	return _name;
-}
-
-int	Bureaucrat::getGrade() const {
-	return _grade;
-}
-
-// -----------------------------------------
-
-// Methods
+int	Bureaucrat::getGrade() const { return _grade; }
 
 void	Bureaucrat::incGrade() {
 	if (_grade - 1 < 1)
@@ -76,12 +52,6 @@ std::ostream	&operator<<(std::ostream &o, Bureaucrat const &rhs) {
 	return o;
 }
 
-// Exceptions
+char const	*Bureaucrat::GradeTooHighException::what() const throw() { return "Grade is too high"; }
 
-char const	*Bureaucrat::GradeTooHighException::what() const throw() {
-	return "Grade is too high";
-}
-
-char const	*Bureaucrat::GradeTooLowException::what() const throw() {
-	return "Grade is too low";
-}
+char const	*Bureaucrat::GradeTooLowException::what() const throw() { return "Grade is too low"; }

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 00:57:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/04/30 22:19:09 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:14:32 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,17 @@
 #define GREEN	"\033[38;5;80m"
 #define DEF		"\033[0m"
 
-static bool getContent(std::string const fileName, std::string &content, std::string const occurrence, std::string const replace) {
+static bool	getContent(std::string const fileName, std::string &content, std::string const occurrence, std::string const replace) {
 	std::ifstream	ifs;
-	ifs.open(fileName, std::ifstream::in);
-	if (!ifs.is_open()) {
-		return false;
-	}
 
+	ifs.open(fileName, std::ifstream::in);
+	if (!ifs.is_open())
+		return false;
 	std::getline(ifs, content, '\0');
 	ifs.close();
 
 	size_t	pos;
-	int countOccurrence = 0;
+	int		countOccurrence = 0;
 	while ((pos = content.find(occurrence)) != std::string::npos) {
 		content.erase(pos, occurrence.size());
 		content.insert(pos, replace);
@@ -41,7 +40,6 @@ static bool getContent(std::string const fileName, std::string &content, std::st
 		std::cout << GREEN << fileName << " contains no occurence of \"" << occurrence << "\"" << DEF << std::endl;
 		return false;
 	}
-
 	return true;
 }
 
@@ -51,10 +49,10 @@ int	main(int argc, char **argv) {
 		return 1;
 	}
 
-	std::string const occurrence = argv[2];
-	std::string const replace = argv[3];
-	std::string fileName = argv[1];
-	std::string content;
+	std::string const	occurrence = argv[2];
+	std::string const	replace = argv[3];
+	std::string			fileName = argv[1];
+	std::string			content;
 
 	if (!getContent(fileName, content, occurrence, replace)) {
 		std::cerr << RED "Error: Something wrong occurred opening/reading the file" DEF << std::endl;

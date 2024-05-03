@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:17:26 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/11/30 16:47:13 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:35:43 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@
 # include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal {
+public:
+	WrongCat();
+	WrongCat(WrongCat const &copy);
+	virtual ~WrongCat();
+	WrongCat	&operator=(WrongCat const &rhs);
 
-	public:
-		WrongCat(); // Canonical form
-		WrongCat(WrongCat const &copy); // Canonical form
-		virtual ~WrongCat(); // Canonical form
-		WrongCat &operator=(WrongCat const &rhs); // Canonical form
-
-		void makeSound() const;
+	void	makeSound() const;
 };
 
 

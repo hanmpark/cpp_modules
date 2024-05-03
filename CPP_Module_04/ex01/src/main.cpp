@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:31:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:28:24 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:37:25 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
-int main()
-{
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+int main() {
+	const Animal*	j = new Dog();
+	const Animal*	i = new Cat();
 
 	delete j; // should not create a leak
 	delete i;

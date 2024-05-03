@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 12:52:03 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/04/30 21:39:05 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:11:26 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-void	Account::_displayTimestamp(void) {
+void	Account::_displayTimestamp() {
 	std::time_t currentTime = std::time(nullptr);
 	struct tm* timeInfo = std::localtime(&currentTime);
 
@@ -35,22 +35,22 @@ Account::Account(int initial_deposit) : _accountIndex(_nbAccounts), _amount(init
 	_totalAmount += initial_deposit;
 }
 
-Account::~Account(void) {
+Account::~Account() {
 	_displayTimestamp();
 	std::cout	<< "index:" << _accountIndex
 				<< ";amount:" << _amount
 				<< ";closed" << std::endl;
 }
 
-int	Account::getNbAccounts(void) { return _nbAccounts; }
+int	Account::getNbAccounts() { return _nbAccounts; }
 
-int	Account::getTotalAmount(void) { return _totalAmount; }
+int	Account::getTotalAmount() { return _totalAmount; }
 
-int	Account::getNbDeposits(void) { return _totalNbDeposits; }
+int	Account::getNbDeposits() { return _totalNbDeposits; }
 
-int	Account::getNbWithdrawals(void) { return _totalNbWithdrawals; }
+int	Account::getNbWithdrawals() { return _totalNbWithdrawals; }
 
-void	Account::displayAccountsInfos(void) {
+void	Account::displayAccountsInfos() {
 	_displayTimestamp();
 	std::cout	<< "accounts:" << _nbAccounts
 				<< ";total:" << _totalAmount
@@ -59,7 +59,7 @@ void	Account::displayAccountsInfos(void) {
 				<< std::endl;
 }
 
-void	Account::displayStatus(void) const {
+void	Account::displayStatus() const {
 	_displayTimestamp();
 	std::cout	<< "index:" << _accountIndex
 				<< ";amount:" << _amount
@@ -106,4 +106,4 @@ bool	Account::makeWithdrawal(int withdrawal) {
 	return true;
 }
 
-int	Account::checkAmount(void) const { return _amount; }
+int	Account::checkAmount() const { return _amount; }

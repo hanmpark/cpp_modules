@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:19:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/11/30 15:05:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:45:39 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include "AMateria.hpp"
 
 class IMateriaSource {
+public:
+	virtual ~IMateriaSource() {}
 
-	public:
-		virtual ~IMateriaSource() {}
-		virtual void learnMateria(AMateria *) = 0;
-		virtual AMateria *createMateria(std::string const &type) = 0;
+	virtual void		learnMateria(AMateria *) = 0;
+	virtual AMateria	*createMateria(std::string const &type) = 0;
 };
 
 #endif

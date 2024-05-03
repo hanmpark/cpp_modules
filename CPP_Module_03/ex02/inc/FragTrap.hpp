@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:28:00 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:23:54 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:24:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@
 # define ROSE "\033[38;5;218m"
 
 class FragTrap : public ClapTrap {
+public:
+	FragTrap();
+	FragTrap(std::string const &Name);
+	FragTrap(FragTrap const &copy);
+	FragTrap	&operator=(FragTrap const &rhs);
+	~FragTrap();
 
-	public:
-		FragTrap();
-		FragTrap(std::string const &Name);
-		FragTrap(FragTrap const &copy);
-		FragTrap &operator=(FragTrap const &rhs);
-		~FragTrap();
-
-		void highFivesGuys();
+	void	highFivesGuys();
 };
 
 #endif

@@ -6,38 +6,26 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 14:52:09 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 20:34:39 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:36:32 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
-/*
-* Orthodox canonical form:
-* - Default constructor
-* - Copy constructor
-* - Destructor
-* - Copy assignment operator
-*/
-
 Brain::Brain() {
-
 	std::cout << "[Brain] Default constructor called" << std::endl;
 }
 
 Brain::Brain(Brain const &copy) {
-
 	std::cout << "[Brain] Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 Brain::~Brain() {
-
 	std::cout << "[Brain] Destructor called" << std::endl;
 }
 
-Brain &Brain::operator=(Brain const &rhs) {
-
+Brain	&Brain::operator=(Brain const &rhs) {
 	std::cout << "[Brain] Copy assignment called" << std::endl;
 
 	if (this != &rhs) {
@@ -48,10 +36,7 @@ Brain &Brain::operator=(Brain const &rhs) {
 	return *this;
 }
 
-// End of the orthodox canonical form
-
 Brain::Brain(std::string const &animalType) {
-
 	std::cout << "[Brain] has been created" << std::endl;
 	if (animalType == "cat") {
 		for (int i = 0; i < 100; i++) {
@@ -68,8 +53,7 @@ Brain::Brain(std::string const &animalType) {
 	}
 }
 
-void Brain::sayIdeas(int nbr) const {
-
+void	Brain::sayIdeas(int nbr) const {
 	for (int i = 0; i < nbr && i < 100; i++) {
 		std::cout << _ideas[i] << std::endl;
 	}

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:23:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 19:17:03 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:43:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,20 @@
 # include <iostream>
 
 class AAnimal {
+protected:
+	std::string _type;
 
-	protected:
-		std::string _type;
+public:
+	AAnimal();
+	AAnimal(AAnimal const &copy);
+	virtual ~AAnimal();
+	AAnimal	&operator=(AAnimal const &rhs);
 
-	public:
-		AAnimal(); // Canonical form
-		AAnimal(AAnimal const &copy); // Canonical form
-		virtual ~AAnimal(); // Canonical form
-		AAnimal &operator=(AAnimal const &rhs); // Canonical form
+	AAnimal(std::string type);
 
-		AAnimal(std::string type);
-
-		std::string const getType() const;
-		virtual void makeSound() const = 0;
-		virtual void telepathy(int nbr) const = 0;
+	std::string const	getType() const;
+	virtual void		makeSound() const = 0;
+	virtual void		telepathy(int nbr) const = 0;
 };
 
 #endif

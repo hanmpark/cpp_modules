@@ -6,18 +6,18 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:02:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:28:43 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:30:41 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-static void putSeparator() {
+static void	putSeparator() {
 
 	std::cout << "------------------------------------------------------------" << std::endl;
 }
 
-int main() {
+int	main() {
 
 	DiamondTrap Diamond("Diamond");
 	FragTrap Fraggy("Fraggy");
@@ -42,6 +42,5 @@ int main() {
 	Diamond.highFivesGuys();
 	Diamond.whoAmI();
 	std::cout << std::endl;
-
 	return 0;
 }

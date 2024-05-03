@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:20:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/04/30 21:37:55 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:10:42 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 Contact::Contact(void) {}
 
 Contact::~Contact(void) {}
-
-/*
-* The getter method is used to retrieve the variable value and the setter method is used to set
-* the variable value.
-* Those type of methods provide better encapsulation and abstraction of the class's internal workings.
-*/
 
 void	Contact::setFirstName(std::string first_name) { _FirstName = first_name; }
 

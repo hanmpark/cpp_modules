@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:56:03 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/04/30 21:31:52 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:12:03 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 
 class Zombie {
 public:
-	Zombie(void);
-	~Zombie(void);
+	Zombie();
+	~Zombie();
 
 	void		setName(std::string);
-	std::string	getName(void) const;
+	std::string	getName() const;
 
-	void	announce(void) const;
+	void	announce() const;
 
 private:
 	std::string	_name;

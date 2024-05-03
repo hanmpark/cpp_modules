@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:03:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/30 12:52:35 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 03:04:15 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ private:
 	}	t_op;
 
 public:
-	RPN();							// canonical form
-	RPN(RPN const &copy);			// canonical form
-	~RPN();							// canonical form
-	RPN	&operator=(RPN const &rhs);	// canonical form
+	RPN();
+	RPN(RPN const &copy);
+	~RPN();
+	RPN	&operator=(RPN const &rhs);
 
 	// Public method
 

@@ -6,20 +6,18 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:02:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 17:25:26 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:29:41 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-static void putSeparator() {
-
+static void	putSeparator() {
 	std::cout << "------------------------------------------------------------" << std::endl;
 }
 
-static void presentTraps(ClapTrap &Clappy, ScavTrap &Scavy, FragTrap &Fraggy) {
-
+static void	presentTraps(ClapTrap &Clappy, ScavTrap &Scavy, FragTrap &Fraggy) {
 	putSeparator();
 	std::cout << Clappy.getName() << " has " << Clappy.getHitPoints() << " hitpoints, " << Clappy.getEnergyPoints() << " energy points and " << Clappy.getAttackDamage() << " attack damage." << std::endl;
 	std::cout << Scavy.getName() << " has " << Scavy.getHitPoints() << " hitpoints, " << Scavy.getEnergyPoints() << " energy points and " << Scavy.getAttackDamage() << " attack damage." << std::endl;
@@ -28,11 +26,10 @@ static void presentTraps(ClapTrap &Clappy, ScavTrap &Scavy, FragTrap &Fraggy) {
 	std::cout << std::endl;
 }
 
-int main() {
-
-	ClapTrap Clappy("Clappy");
-	ScavTrap Scavy("Scavy");
-	FragTrap Fraggy("Fraggy");
+int	main() {
+	ClapTrap	Clappy("Clappy");
+	ScavTrap	Scavy("Scavy");
+	FragTrap	Fraggy("Fraggy");
 
 	std::cout << std::endl;
 
@@ -60,6 +57,5 @@ int main() {
 	std::cout << std::endl;
 
 	presentTraps(Clappy, Scavy, Fraggy);
-
 	return 0;
 }

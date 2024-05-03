@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:40:43 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/13 14:49:54 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:56:20 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 #include <cstdlib>
 #include <ctime>
 
-/**
- * Orthodox canonical form:
- * - Default constructor
- * - Copy constructor
- * - Destructor
- * - Copy assignment operator
- */
-
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) :	AForm(copy), \
-																			_target(copy.getName()) {}
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) : AForm(copy), _target(copy.getName()) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
@@ -32,11 +23,7 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &r
 	return *this;
 }
 
-// End of canonical form
-
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : AForm(target, 72, 45), _target(target) {}
-
-// Method
 
 void	RobotomyRequestForm::execute(Bureaucrat const &bureaucrat) const {
 	if (this->getSigned() == false)

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:43:22 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/18 10:05:05 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 03:01:23 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,4 @@ void	ScalarConverter::convert(std::string const &literal) {
 	throw NotFoundTypeException();
 }
 
-// Exception
-
-char const	*ScalarConverter::NotFoundTypeException::what() const throw() {
-	return "Incorrectly formatted number";
-}
+char const	*ScalarConverter::NotFoundTypeException::what() const throw() { return "Incorrectly formatted number"; }

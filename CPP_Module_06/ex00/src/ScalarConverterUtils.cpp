@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 09:56:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/15 19:28:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 03:01:30 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,4 @@ double	ScalarConverter::stod(std::string const &str) {
 	return result;
 }
 
-// Exception
-char const	*ScalarConverter::ConversionException::what() const throw() {
-	return "Bad conversion";
-}
+char const	*ScalarConverter::ConversionException::what() const throw() { return "Bad conversion"; }

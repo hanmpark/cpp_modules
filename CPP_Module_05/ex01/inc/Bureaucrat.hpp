@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:29:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/14 11:19:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:51:33 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,19 @@ private:
 	int					_grade;
 
 public:
-	Bureaucrat(); // Canonical form
-	Bureaucrat(Bureaucrat const &copy); // Canonical form
-	~Bureaucrat(); // Canonical form
-	Bureaucrat	&operator=(Bureaucrat const &rhs); // Canonical form
+	Bureaucrat();
+	Bureaucrat(Bureaucrat const &copy);
+	~Bureaucrat();
+	Bureaucrat	&operator=(Bureaucrat const &rhs);
 	Bureaucrat	(std::string const &name, int grade);
 
-	// Getters
 	std::string const	getName() const;
 	int 				getGrade() const;
 
-	// Methods
 	void	incGrade();
 	void	decGrade();
 	void	signForm(Form &form) const;
 
-	// Exceptions
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual char const	*what() const throw();

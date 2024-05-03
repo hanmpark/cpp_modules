@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:38:08 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/14 11:19:28 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:51:43 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,21 @@ private:
 	int const			_gradeToSign;
 	int const			_gradeToExecute;
 
-	Form(); // Canonical form
+	Form();
 
 public:
-	Form(Form const &copy); // Canonical form
-	~Form(); // Canonical form
-	Form	&operator=(Form const &rhs); // Canonical form
+	Form(Form const &copy);
+	~Form();
+	Form	&operator=(Form const &rhs);
 	Form(std::string const &name, int gradeToSign);
 
-	// Getters
 	std::string const	getName() const;
 	bool				getSigned() const;
 	int					getGradeToSign() const;
 	int					getGradeToExecute() const;
 
-	// Method
 	void	beSigned(Bureaucrat const &bureaucrat);
 
-	// Exceptions
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual char const	*what() const throw();

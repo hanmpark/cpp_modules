@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:54:08 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/04/30 22:25:20 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:16:37 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ Fixed::~Fixed() {
 
 int	Fixed::getRawBits(void) const { return _fixedPointValue; }
 
-void Fixed::setRawBits(int const raw) { _fixedPointValue = raw; }
+void	Fixed::setRawBits(int const raw) { _fixedPointValue = raw; }
 
-float Fixed::toFloat(void) const { return static_cast<float>(getRawBits()) / (1 << _fractionalBits); }
+float	Fixed::toFloat(void) const { return static_cast<float>(getRawBits()) / (1 << _fractionalBits); }
 
-int Fixed::toInt(void) const { return getRawBits() / (1 << _fractionalBits); }
+int	Fixed::toInt(void) const { return getRawBits() / (1 << _fractionalBits); }
 
-std::ostream &operator<<(std::ostream &o, Fixed const &fp) {
+std::ostream	&operator<<(std::ostream &o, Fixed const &fp) {
 	o << fp.toFloat();
 	return o;
 }

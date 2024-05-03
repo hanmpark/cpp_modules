@@ -6,13 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 09:13:16 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/04/30 22:30:09 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:18:38 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-// Using Gauss' formula to calculate the area of a given polygon, in this case a triangle
 static float getArea(Point const a, Point const b, Point const c) {
 	float const sumArea = (a.getX().toFloat() * (b.getY().toFloat() - c.getY().toFloat())) \
 		+ (b.getX().toFloat() * (c.getY().toFloat() - a.getY().toFloat())) \

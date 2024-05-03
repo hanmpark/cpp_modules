@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:31:51 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 19:57:44 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:34:50 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@
 # include <iostream>
 
 class Brain {
+private:
+	std::string _ideas[100];
 
-	private:
-		std::string _ideas[100];
+public:
+	Brain()
+	Brain(Brain const &copy)
+	virtual ~Brain()
+	Brain	&operator=(Brain const &rhs)
 
-	public:
-		Brain(); // Canonical form
-		Brain(Brain const &copy); // Canonical form
-		virtual ~Brain(); // Canonical form
-		Brain &operator=(Brain const &rhs); // Canonical form
+	Brain(std::string const &animalType);
 
-		Brain(std::string const &animalType);
-
-		void sayIdeas(int nbr) const;
+	void	sayIdeas(int nbr) const;
 };
 
 #endif

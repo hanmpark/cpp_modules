@@ -6,23 +6,14 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:34:55 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/14 10:41:10 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:56:43 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-/**
- * Orthodox canonical form:
- * - Default constructor
- * - Copy constructor
- * - Destructor
- * - Copy assignment operator
- */
-
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) :	AForm(copy), \
-																					_target(copy.getName()) {}
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) : AForm(copy), _target(copy.getName()) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
@@ -31,11 +22,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 	return *this;
 }
 
-// End of canonical form
-
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) :	AForm(target, 145, 137), _target(target) {}
-
-// Method
 
 void	ShrubberyCreationForm::execute(Bureaucrat const &bureaucrat) const {
 	if (this->getSigned() == false)
@@ -76,8 +63,4 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &bureaucrat) const {
 	file.close();
 }
 
-// Exception
-
-char const	*ShrubberyCreationForm::CreateFileException::what() const throw() {
-	return "Could not create the file";
-}
+char const	*ShrubberyCreationForm::CreateFileException::what() const throw() { return "Could not create the file"; }

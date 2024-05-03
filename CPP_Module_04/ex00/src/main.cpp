@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:31:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/01 18:03:35 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:33:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
-static void putSeparator() {
-
+static void	putSeparator() {
 	std::cout << std::endl;
 	std::cout << "------------------------------------------------------------" << std::endl;
 	std::cout << std::endl;
 }
 
-static void Animals() {
-
+static void	Animals() {
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -44,8 +42,7 @@ static void Animals() {
 	delete i;
 }
 
-static void WrongAnimals() {
-
+static void	WrongAnimals() {
 	const WrongAnimal* wrongAnimal = new WrongAnimal();
 	const WrongAnimal* wrongCat = new WrongCat();
 
@@ -63,11 +60,9 @@ static void WrongAnimals() {
 	delete wrongCat;
 }
 
-int main() {
-
+int	main() {
 	Animals();
 	putSeparator();
 	WrongAnimals();
-
 	return 0;
 }

@@ -6,19 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/03/14 10:51:36 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:59:38 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-
-/**
- * Orthodox canonical form:
- * - Default constructor
- * - Copy constructor
- * - Destructor
- * - Copy assignment operator
- */
 
 Intern::Intern() {}
 
@@ -33,10 +25,6 @@ Intern	&Intern::operator=(Intern const &rhs) {
 	(void)rhs;
 	return *this;
 }
-
-// End of canonical form
-
-// Method
 
 AForm	*Intern::makeForm(std::string const &formName, std::string const &target) {
 	try {
@@ -60,8 +48,4 @@ AForm	*Intern::makeForm(std::string const &formName, std::string const &target) 
 	return NULL;
 }
 
-// Exception
-
-char const	*Intern::NotFoundFormException::what() const throw() {
-	return "Intern couldn't find any form";
-}
+char const	*Intern::NotFoundFormException::what() const throw() { return "Intern couldn't find any form"; }

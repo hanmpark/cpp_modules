@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:54:27 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/11/30 16:46:39 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:32:01 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@
 # include "Animal.hpp"
 
 class Dog : public Animal {
+public:
+	Dog();
+	Dog(Dog const &copy);
+	virtual ~Dog();
+	Dog	&operator=(Dog const &rhs);
 
-	public:
-		Dog(); // Canonical form
-		Dog(Dog const &copy); // Canonical form
-		virtual ~Dog(); // Canonical form
-		Dog &operator=(Dog const &rhs); // Canonical form
-
-		void makeSound() const;
+	void	makeSound() const;
 };
 
 #endif

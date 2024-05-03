@@ -6,22 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:13:23 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/12/04 16:28:54 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 02:48:38 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-/*
-* Orthodox canonical form:
-* - Default constructor
-* - Copy constructor
-* - Destructor
-* - Copy assignment operator
-*/
-
 Character::Character() : _name("* no name *") {
-
 	for (int i = 0; i < 4; i++) {
 		_inventory[i] = NULL;
 	}
@@ -30,13 +21,11 @@ Character::Character() : _name("* no name *") {
 }
 
 Character::Character(Character const &copy) : _name(copy._name) {
-
 	*this = copy;
 	std::cout << GREEN "[Character] " << _name << " has been created" DEF << std::endl;
 }
 
 Character::~Character() {
-
 	for (int i = 0; i < 4; i++) {
 		if (_inventory[i]) {
 			delete _inventory[i];
@@ -49,8 +38,7 @@ Character::~Character() {
 	std::cout << GREEN "[Character] " << _name << " has been destroyed" DEF << std::endl;
 }
 
-Character &Character::operator=(Character const &rhs) {
-
+Character	&Character::operator=(Character const &rhs) {
 	std::cout << "[Character] Copy assignment operator called" << std::endl;
 
 	if (this != &rhs) {
@@ -80,10 +68,7 @@ Character &Character::operator=(Character const &rhs) {
 	return *this;
 }
 
-// End of the orthodox canonical form
-
 Character::Character(std::string const &name) : _name(name) {
-
 	for (int i = 0; i < 4; i++) {
 		_inventory[i] = NULL;
 	}
@@ -91,13 +76,9 @@ Character::Character(std::string const &name) : _name(name) {
 	std::cout << GREEN "[Character] " << _name << " has been created" DEF << std::endl;
 }
 
-std::string const &Character::getName() const {
+std::string const	&Character::getName() const { return _name; }
 
-	return _name;
-}
-
-void Character::equip(AMateria *m) {
-
+void	Character::equip(AMateria *m) {
 	for (int i = 0; i < 4; i++) {
 		if (_inventory[i] == NULL) {
 			_inventory[i] = m;
@@ -110,10 +91,9 @@ void Character::equip(AMateria *m) {
 	m = NULL;
 }
 
-int Character::countGroundItem() const {
-
-	int count = 1;
-	int i = 0;
+int	Character::countGroundItem() const {
+	int	count = 1;
+	int	i = 0;
 
 	while (_ground && _ground[i++]) {
 		count++;
@@ -121,11 +101,10 @@ int Character::countGroundItem() const {
 	return count;
 }
 
-void Character::updateGround(AMateria *unequippedAmateria) {
+void	Character::updateGround(AMateria *unequippedAmateria) {
+	int	groundItemNbr = countGroundItem();
 
-	int groundItemNbr = countGroundItem();
-
-	AMateria **newGround = new AMateria*[groundItemNbr + 1];
+	AMateria	**newGround = new AMateria*[groundItemNbr + 1];
 
 	for (int i = 0; i < groundItemNbr - 1; i++) {
 		newGround[i] = _ground[i];
@@ -139,9 +118,8 @@ void Character::updateGround(AMateria *unequippedAmateria) {
 	_ground = newGround;
 }
 
-void Character::reorderItems() {
-
-	int i = 0;
+void	Character::reorderItems() {
+	int	i = 0;
 
 	while (i < 3) {
 		if (!_inventory[i] && _inventory[i + 1]) {
@@ -152,8 +130,7 @@ void Character::reorderItems() {
 	}
 }
 
-void Character::unequip(int idx) {
-
+void	Character::unequip(int idx) {
 	if ((idx >= 0 && idx <= 3) && _inventory[idx]) {
 		updateGround(_inventory[idx]->clone());
 		delete _inventory[idx];
@@ -165,8 +142,7 @@ void Character::unequip(int idx) {
 	std::cout << RED "[Character] " << _name << " doesn't have any equipment at slot " << idx << DEF << std::endl;
 }
 
-void Character::use(int idx, ICharacter &target) {
-
+void	Character::use(int idx, ICharacter &target) {
 	if ((idx >= 0 && idx <= 3) && _inventory[idx]) {
 		_inventory[idx]->use(target);
 		std::cout << GREEN "[Character] " << _name << " uses " << _inventory[idx]->getType() << DEF << std::endl;
@@ -175,8 +151,7 @@ void Character::use(int idx, ICharacter &target) {
 	std::cout << RED "[Character] " << _name << " doesn't have any equipment at slot " << idx << DEF << std::endl;
 }
 
-void Character::checkground() const {
-
+void	Character::checkground() const {
 	std::cout << BLUE "[Character] on the ground: ";
 	for (int i = 0; _ground[i]; i++) {
 		std::cout << "[" << _ground[i]->getType() << "]";
